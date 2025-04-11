@@ -28,16 +28,16 @@ import Home from "./views/Home.js";
 
 const projects = [
   {
-    name: "Transcendence",
-    description: "Un beau Projet",
+    name: "TRANSCENDENCE:",
+    description: "Single page application designed in a microservice architecture.",
     stack: ["HTML", "CSS", "JS", "Django", "Docker", "PostgreSQL"],
-    media: "/media/command-line.png"
+    media: "/media/logoJs.svg"
   },
   {
-    name: "Project 2",
-    description: "Un autre beau projet",
+    name: "MINISHELL:",
+    description: "Replica of a shell in C.",
     stack: "HTML, CSS, JS",
-    media: "/media/command-line.png"  
+    media: "/media/logoJs.svg"
   },
 ]
 

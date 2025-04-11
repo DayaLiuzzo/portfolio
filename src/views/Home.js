@@ -17,8 +17,8 @@ export default class Home extends BaseView {
 
 	render() {
 			return `
-				<div id="canva">
-				</div>
+				<div id="loadingAnimation" class="loadingAnimation"></div>
+				<div id="canva"></div>
               `;
 	}
 
@@ -58,12 +58,20 @@ export default class Home extends BaseView {
 		mediaCanva.appendChild(projectMediaElement);
 	}
 
+	renderOverlay() {
+		const loadingAnimation = document.getElementById('loadingAnimation');
+		const piece = this.customCreateElement('div', "piece", "piece");
+		const label = this.customCreateElement('div', "label", "label -bordered");
+		loadingAnimation.appendChild(piece);
+		label.innerText = "PSYCHOGRAPHIC DISPLAY";
+		piece.appendChild(label);
+	}
+
 	mount() {
 		for(const project of this.projects) {
 			this.renderSection(project.name, project.description, project.stack, project.media);
 		}
-		// this.renderSection("Transcendence", "Un beau Projet", "HTML, CSS, JS", "https://www.youtube.com/watch?v=2X6v1g0a4nE");
-		
+		this.renderOverlay();
 	}
 
 	attachEvents() {

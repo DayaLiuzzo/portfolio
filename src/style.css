@@ -1,23 +1,137 @@
 
-body {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  scrollbar-width: none;
   margin: 0;
+  padding: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  height: 100%;
+  font-family: 'Times New Roman', serif;
+  background: linear-gradient(to bottom, #f5f5f5, #ffffff);
+  background-attachment: fixed; 
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  flex-direction: column;
+  font-stretch: condensed;
+  width: 100%;
+  scroll-behavior: smooth;
 }
 
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 
-#text {
-  font-size: 2rem;
-  font-family: Helvetica;
-  font-weight: bold;
-  color: #333;
+#canva {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
+
+.section {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  border: #333 solid 1px;
+}
+
+
+.mediaCanva {
+  display: flex;
+  top: 15%;
+  flex-direction: column;
+  width: 60%;          /* Set the width to a desired percentage or pixel size */
+  height: 60%;        /* Height auto to maintain aspect ratio */
+  margin: 0 auto;      /* Center the div horizontally */
+  position: relative;  /* To manage absolute positioning of the 'rubber bands' */
+  perspective: 1000px; /* Add perspective for a 3D effect */
+  border: 10px solid #333; /* Add a frame to the canva */
+  border-radius: 8px;  /* Optional: add rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  overflow: hidden;    /* Ensure the image doesn't overflow the div */
+}
+
+.mediaCanva .media {
+  width: 100%;         /* Make image fill the container */
+  height: 100%;        /* Maintain the image's aspect ratio */
+  transition: transform 0.3s ease;  /* Smooth transition for zooming effect */
+}
+
+.mediaCanva .media:hover {
+  transform: scale(1.05);  /* Zoom the image slightly on hover */
+}
+
+
+.mediaCanva::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 10px, rgba(255, 255, 255, 0.1) 10px, rgba(255, 255, 255, 0.1) 15px);
+  transform: skewY(-15deg);  /* Slant the rubber band stripes */
+  pointer-events: none;   /* Ensure it doesn't interfere with mouse events */
+}
+
+.projectCanva {
+  border: #00a9b5 solid 1px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow:hidden;
+
+}
+
+.projectName{
+  position:relative;
+  border: #39b500 solid 2px;
+}
+
+.projectDescription{
+  position:relative;
+  border: #39b500 solid 2px;
+}
+
+.projectLabel{
+  position:relative;
+  padding: 0;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 25%;
+  overflow:hidden;
+  flex-shrink: 1;
+  top: 30%;
+  border: #39b500 solid 2px;
+}
+
+  #header {
+    background-color: #d4d4d4;
+    font-size: 10rem;
+  }
+
+  #content {
+    background-color: #eeff044b;
+  }
+

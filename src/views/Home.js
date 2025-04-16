@@ -40,7 +40,17 @@ export default class Home extends BaseView {
 	renderSection(projectName, projectDescription, projectStack, projectMedia) {
 		const projectCanva = this.customCreateElement('div', "projectCanva-" + projectName , "projectCanva");
 		const newSection = this.customCreateElement('section', "section-" + projectName, "section");
-		const mediaCanva = this.customCreateElement('div', "mediaCanva-" + projectName, "mediaCanva");
+		const mediaStackCanva = this.customCreateElement('div', "mediaStackCanva-" + projectName, "mediaStackCanva");
+		const stackCanva = this.customCreateElement('div', "stackCanva-" + projectName, "stackCanva");
+		
+		for(const stackElement of projectStack){
+			const stackElementDiv = this.customCreateElement('div', "stack-" + stackElement, "stackElement");
+			stackElementDiv.innerText = stackElement;
+			stackCanva.appendChild(stackElementDiv);
+			console.log(stackElement);
+
+		}
+
 		const projectMediaElement = this.customCreateImage(projectMedia, "media-" + projectName, "media");
 		const projectNameElement = this.customCreateElement('h2', "name-" + projectName, "projectName");
 		const projectDescriptionElement = this.customCreateElement('p', "description-" + projectName, "projectDescription");
@@ -51,11 +61,28 @@ export default class Home extends BaseView {
 		
 
 		newSection.appendChild(projectCanva);
+		mediaStackCanva.appendChild(stackCanva);
 		projectCanva.appendChild(projectLabel);
-		projectCanva.appendChild(mediaCanva);
+		projectCanva.appendChild(mediaStackCanva);
 		projectLabel.appendChild(projectNameElement);
 		projectLabel.appendChild(projectDescriptionElement);
-		mediaCanva.appendChild(projectMediaElement);
+		mediaStackCanva.appendChild(projectMediaElement);
+	}
+
+	renderHeader() {
+		const header = this.customCreateElement('div', "header", "header");
+		const card = this.customCreateElement('div', "card", "card");
+		const surname = this.customCreateElement('h1', "surname", "surname");
+		const lastname = this.customCreateElement('h1', "lastname", "lastname");
+		const portfolioText = this.customCreateElement('h1', "portfolioText", "portfolioText");
+		surname.innerText = "DAYA";
+		lastname.innerText = "LIUZZO";
+		portfolioText.innerText = "PORTFOLIO";
+		card.appendChild(surname);
+		card.appendChild(lastname);
+		card.appendChild(portfolioText);
+		header.appendChild(card);
+		document.getElementById('canva').appendChild(header);
 	}
 
 	renderOverlay() {
@@ -68,10 +95,11 @@ export default class Home extends BaseView {
 	}
 
 	mount() {
+		this.renderHeader();
 		for(const project of this.projects) {
 			this.renderSection(project.name, project.description, project.stack, project.media);
 		}
-		this.renderOverlay();
+		// this.renderOverlay();
 	}
 
 	attachEvents() {

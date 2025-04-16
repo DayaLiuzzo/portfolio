@@ -31,12 +31,12 @@ const projects = [
     name: "TRANSCENDENCE:",
     description: "Single page application designed in a microservice architecture.",
     stack: ["HTML", "CSS", "JS", "Django", "Docker", "PostgreSQL"],
-    media: "/media/logoJs.svg"
+    media: "/media/command-line.png"
   },
   {
     name: "MINISHELL:",
     description: "Replica of a shell in C.",
-    stack: "HTML, CSS, JS",
+    stack: ["C", "shell", "Makefile"],
     media: "/media/logoJs.svg"
   },
 ]

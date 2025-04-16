@@ -6,6 +6,7 @@
 }
 
 html, body {
+  --glow-rgb: 255, 102, 0;
   scrollbar-width: none;
   margin: 0;
   padding: 0;
@@ -59,6 +60,36 @@ html, body {
     inset 0 0 0 1px var(--border-glow-color),
     0 0 0 1px var(--border-glow-color);
 }
+
+.stackElement{
+  --gutter-size: 8px;
+  --border-glow-color: rgba(var(--glow-rgb), .7);
+  border-radius: var(--gutter-size);
+  border-style: solid;
+  border-width: 3px;
+  box-shadow:
+  inset 0 0 0 1px var(--border-glow-color),
+  0 0 0 1px var(--border-glow-color);
+  --text-color: #fa0;
+  font-family:'Roboto Condensed';
+  font-weight: 400;
+  font-size: clamp(1em, 1vw, 1.5rem);
+  letter-spacing: -1px;
+  line-height: 1;
+  padding: 1px calc(var(--gutter-size) - 3px);
+  text-transform: uppercase;
+  user-select: none;
+  white-space: nowrap;
+  --text-glow-color: rgba(var(--glow-rgb), .5);
+  color: var(--text-color);
+  text-shadow:
+    -1px 1px 0 var(--text-glow-color),
+    1px -1px 0 var(--text-glow-color),
+    -1px -1px 0 var(--text-glow-color),
+    1px 1px 0 var(--text-glow-color);
+}
+
+
 .label {
   --text-color: #fa0;
   display: inline-block;
@@ -107,17 +138,20 @@ html, body {
 
 
 
-.mediaCanva {
+.mediaStackCanva {
   display: flex;
   margin: 0;
   padding: 0;
   flex-direction: column;
   width: 60%; 
-  height: 60%;
+  height: 100%;
+  align-items: left;
+  justify-content: left;
   min-width: 150px;
   min-height: 150px;
   position: relative; 
-  /* border: #c200a1 solid 2px; */
+  /* border: #fa0 solid 2px; */
+  /* border: 2px dashed lime; */
 }
 
 
@@ -127,29 +161,111 @@ html, body {
   position: relative;
   display: flex;
   flex-direction: row;
-  align-items: center;
   width: 100%;
   height: 100%;
+  /* border:#fa0 solid 2px; */
+}
 
+.stackCanva{
+  gap: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  position:relative;
+  font-size: clamp(1.15rem, 2vw, 4rem);
+  object-fit: contain;
+  overflow:hidden;
+  /* background-color: #ff0000; */
+    
 
+  /* border: #00a9b5 solid 5px; */
 }
 
 .media {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  position:relative;
+  aspect-ratio: 16/9;
+  min-height: 80%;
+  /* border: 2px solid #af0000; */
+  /* outline: 2px solid #ff0000; */
+  object-position: center center;
+  display: block;
   /* border: #b50070 solid 2px; */
   object-fit: contain;
 }
 
+.header{
+  /* border: #5c150c solid 2px; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  position: relative;
+  /* border: #00a9b5 solid 1px; */
+}
+
+
+#card{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: serif;
+  color: white;
+  text-shadow: 0 0 2px #e19a86, 0 0 1.5px #854535, 0 0 1.5px #5c150c;
+  white-space: nowrap;
+  letter-spacing: -1.5px;
+  text-align: left;
+  justify-content: left;
+}
+
+.surname{
+  width: 100%;
+  height: auto;
+  display: inline-flex;
+  letter-spacing: -0.4rem;
+  margin: 0;
+  line-height: 0.8;
+  padding: 0;
+  font-size: clamp(7rem, 8vw, 12rem);
+}
+
+.lastname{
+  width: 100%;
+  height: auto;
+  margin:0;
+  line-height: 0.8;
+  padding: 0;
+  font-size: clamp(7rem, 8vw, 12rem);
+}
+
+.portfolioText{
+  width: 100%;
+  height: auto;
+  transform: scale(1, 1.5);
+  line-height: 1.2;
+  margin:0;
+  margin-top: 0;
+  padding: 0;
+  padding-top: 0;
+  font-size: clamp(9rem, 10vw, 14rem);
+}
+
 .projectName{
+  /* filter: blur(0.3px); */
   width: 100%;
   height: 50%;
   margin: 0;
   padding: 0;
   font-size: clamp(1.50rem, 4vw, 7rem);
+  align-self: baseline;
+  font-family: serif;
+  color: white;
+  text-shadow: 0 0 2px #e19a86, 0 0 1.5px #854535, 0 0 1.5px #5c150c;
   white-space: nowrap;
+  letter-spacing: -1px;
   text-align: left;
   position:relative;
 
@@ -159,11 +275,15 @@ html, body {
 
 .projectDescription{
   margin: 0;
-  font-size: clamp(1.15rem, 2vw, 4rem);
+  font-size: clamp(1.15rem, 1.5vw, 4rem);
   padding: 0;
   text-align: right;
-
+  overflow: hidden;
   position:relative;
+  align-self: baseline;
+  font-family: serif;
+  color: white;
+  text-shadow: 0 0 2px #e19a86, 0 0 1.5px #854535, 0 0 1.5px #5c150c;
   width: 100%;
   height: 50%;
   /* border: #5400b5 solid 2px; */
@@ -176,7 +296,7 @@ html, body {
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 25%;
+  height: 50%;
   overflow:hidden;
   /* border: #2700b5 solid 2px; */
 }

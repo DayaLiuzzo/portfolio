@@ -9,6 +9,7 @@ let isRunning = true;
 export default class Home extends BaseView {
 	constructor(router, params) {
 		super(router, params);
+
 	}
 
 	unmount () {
@@ -17,7 +18,7 @@ export default class Home extends BaseView {
 
 	render() {
 			return `
-				<div id="loadingAnimation" class="loadingAnimation"></div>
+	
 				<div id="canva"></div>
               `;
 	}
@@ -75,30 +76,38 @@ export default class Home extends BaseView {
 		const surname = this.customCreateElement('h1', "surname", "surname");
 		const lastname = this.customCreateElement('h1', "lastname", "lastname");
 		const portfolioText = this.customCreateElement('h1', "portfolioText", "portfolioText");
+		const project = this.customCreateElement('h1', "project", "project");
+		const description = this.customCreateElement('h1', "description", "description");
+		project.innerText = "EPISODE: 0";
+		description.innerText = this.about.description;
 		surname.innerText = "DAYA";
 		lastname.innerText = "LIUZZO";
 		portfolioText.innerText = "PORTFOLIO";
 		card.appendChild(surname);
 		card.appendChild(lastname);
 		card.appendChild(portfolioText);
+		card.appendChild(project);
+		card.appendChild(description)
 		header.appendChild(card);
 		document.getElementById('canva').appendChild(header);
 	}
 
-	renderOverlay() {
-		const loadingAnimation = document.getElementById('loadingAnimation');
-		const piece = this.customCreateElement('div', "piece", "piece");
-		const label = this.customCreateElement('div', "label", "label -bordered");
-		loadingAnimation.appendChild(piece);
-		label.innerText = "PSYCHOGRAPHIC DISPLAY";
-		piece.appendChild(label);
-	}
 
+	renderShowcase(){
+		const showcase = this.customCreateElement('div', "showcase", "showcase");
+		const header = document.getElementById("header");
+
+		header.appendChild(showcase);
+
+	}
 	mount() {
 		this.renderHeader();
-		for(const project of this.projects) {
-			this.renderSection(project.name, project.description, project.stack, project.media);
-		}
+		this.renderShowcase();
+		// this.renderBase
+
+		// for(const project of this.projects) {
+		// 	this.renderSection(project.name, project.description, project.stack, project.media);
+		// }
 		// this.renderOverlay();
 	}
 

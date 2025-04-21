@@ -25,6 +25,10 @@ import { setupCounter } from './counter.js'
 
 import Home from "./views/Home.js";
 
+const about = {
+    description: "42Paris software engineering student\n",
+    stack: ["C", "C++", "Python", "HTML", "CSS", "JS", "NGINX", "Docker", "Postgres"]
+};
 
 const projects = [
   {
@@ -39,7 +43,7 @@ const projects = [
     stack: ["C", "shell", "Makefile"],
     media: "/media/logoJs.svg"
   },
-]
+];
 
 const routes = [
   { path: '/', view: Home},
@@ -47,8 +51,9 @@ const routes = [
 ];
 
 class Router{
-  constructor(routes, projects){
+  constructor(routes, projects, about){
       this.routes = routes;
+      this.about = about;
       this.projects = projects;
       this.currentView = null;
       this.init();
@@ -120,6 +125,6 @@ class Router{
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  const router = new Router(routes, projects);
+  const router = new Router(routes, projects, about);
   router.initialLoad(window.location.pathname);
 });

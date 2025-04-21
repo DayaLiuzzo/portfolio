@@ -7,6 +7,7 @@ export default class BaseView{
     constructor(router, params = {}){
         this.router = router
         this.projects = this.router.projects;
+        this.about = this.router.about;
         this.params = params;
         this.app = document.getElementById('app');
         if (!this.app) {

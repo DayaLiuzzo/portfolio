@@ -70,8 +70,8 @@ export default class Home extends BaseView {
 		mediaStackCanva.appendChild(projectMediaElement);
 	}
 
-	renderHeader() {
-		const header = this.customCreateElement('div', "header", "header");
+	renderHome() {
+
 		const card = this.customCreateElement('div', "card", "card");
 		const surname = this.customCreateElement('h1', "surname", "surname");
 		const lastname = this.customCreateElement('h1', "lastname", "lastname");
@@ -88,20 +88,17 @@ export default class Home extends BaseView {
 		card.appendChild(portfolioText);
 		card.appendChild(project);
 		card.appendChild(description)
-		header.appendChild(card);
-		document.getElementById('canva').appendChild(header);
+		document.getElementById('canva').appendChild(card);
 	}
 
 
 	renderShowcase(){
 		const showcase = this.customCreateElement('div', "showcase", "showcase");
-		const header = document.getElementById("header");
-
-		header.appendChild(showcase);
+		document.getElementById('canva').appendChild(showcase);
 
 	}
 	mount() {
-		this.renderHeader();
+		this.renderHome();
 		this.renderShowcase();
 		// this.renderBase
 

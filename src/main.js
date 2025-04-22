@@ -26,7 +26,7 @@ import { setupCounter } from './counter.js'
 import Home from "./views/Home.js";
 
 const about = {
-    description: "42Paris software engineering student\n",
+    description: "42Paris software engineering student",
     stack: ["C", "C++", "Python", "HTML", "CSS", "JS", "NGINX", "Docker", "Postgres"]
 };
 
@@ -76,10 +76,10 @@ class Router{
       if(this.currentView){
           this.currentView.unmount();
       }
-      document.getElementById('app').innerText = "";
+      document.getElementById('canva').innerText = "";
       this.currentView = new ViewClass(this);
 
-      document.getElementById("app").innerHTML = this.currentView.render();
+      document.getElementById("canva").innerHTML = this.currentView.render();
       await this.currentView.mount();
       this.currentView.attachEvents();
       }

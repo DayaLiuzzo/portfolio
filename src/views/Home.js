@@ -18,8 +18,6 @@ export default class Home extends BaseView {
 
 	render() {
 			return `
-	
-				<div id="canva"></div>
               `;
 	}
 
@@ -94,8 +92,29 @@ export default class Home extends BaseView {
 
 	renderShowcase(){
 		const showcase = this.customCreateElement('div', "showcase", "showcase");
-		document.getElementById('canva').appendChild(showcase);
+		const mainBox = this.customCreateElement("div", "mainBox", "mainBox");
+		const mediaCanva = this.customCreateElement("div", "mediaCanva", "mediaCanva");
+		const stackBox = this. customCreateElement("div", "stackBox", "stackBox");
+		const stackElement = this.customCreateElement("div", "stackElement", "stackElement");
+		const techName = this.customCreateElement("h1", "techName", "techName");
+		techName.innerText = "HTML";
 
+
+		//
+		const stackElement2 = this.customCreateElement("div", "stackElement", "stackElement");
+		const techName2 = this.customCreateElement("h1", "techName", "techName");
+		stackElement2.appendChild(techName2);
+		stackBox.appendChild(stackElement2);
+		techName2.innerText = "DOCKER";
+		//
+
+		mainBox.appendChild(mediaCanva);
+		stackElement.appendChild(techName);
+		stackBox.appendChild(stackElement);
+		mainBox.appendChild(stackBox);
+		showcase.appendChild(mainBox);
+		document.getElementById('canva').appendChild(showcase);
+		
 	}
 	mount() {
 		this.renderHome();

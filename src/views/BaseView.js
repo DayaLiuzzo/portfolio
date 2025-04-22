@@ -9,9 +9,9 @@ export default class BaseView{
         this.projects = this.router.projects;
         this.about = this.router.about;
         this.params = params;
-        this.app = document.getElementById('app');
-        if (!this.app) {
-            console.error("Error: Element with id 'app' not found in document");
+        this.canva = document.getElementById('canva');
+        if (!this.canva) {
+            console.error("Error: Element with id 'canva' not found in document");
         }
     }
 

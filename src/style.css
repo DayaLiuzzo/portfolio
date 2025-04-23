@@ -1,13 +1,13 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
+*, *::before, *::after {
+	box-sizing: border-box;
+  margin:0;
   padding: 0;
 }
 
 :root{
   --glow-rgb: 255, 102, 0;
   --base-font: 'Times New Roman', Times, serif;
-  --main-background: hsl(0, 0%, 0%);
+  --main-background: hsl(0, 0%, 100%);
   --font-color: hsl(0, 0%, 100%);
   --base-fontWeight: bold;
   --base-fontStretch: expanded;
@@ -115,8 +115,10 @@ html, body {
     /* border: solid 2px; */
   }
 
-  .mainBox{
+  .mainBox {
+    position: relative;
     display: flex;
+    z-index: 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -124,44 +126,39 @@ html, body {
     height: 90%;
     overflow: hidden;
     gap: 10px;
-    border: 5px solid;
-    /* border-image: repeating-linear-gradient(50deg, #965fd4, #8bd450) 1; */
-    border-image: repeating-linear-gradient(
-    50deg,
-    #965fd4 0%,
-    #965fd4 40%,
-    #8bd450 40%,
-    #8bd450 80%
-  ) 1;
-    /* border-top: solid 2px 	#965fd4;
-    border-left: solid 2px 	 	#965fd4;
-    border-right: solid 2px 	#8bd450;
-    border-bottom: solid 2px #8bd450;; */
+    padding: 2px;
     border-radius: 10px;
-  }
-
-  .mainBox:hover{
+    border: solid 2px;
+    transition: transform 0.3s ease-in-out;
     border-image: repeating-linear-gradient(
-      125deg,
+      50deg,
       #965fd4 0%,
       #965fd4 40%,
       #8bd450 40%,
       #8bd450 80%
-    ) 1;
+      ) 1;
+
+    
+      
+  }
+
+  .mainBox:hover{
+    transform: scale(1.05);
+
+
   }
   
   .mediaCanva{
   
     min-height: 60%;
     min-width: 90%;
-    /* border: solid 2px#e22d00; */
     border-radius: 10px;
   
   }
   
   .stackBox{
     display: flex;
-    /* border: solid 2px #ffffff; */
+
     width: 90%;
     padding: 1%;
     gap: 5px;
@@ -194,10 +191,20 @@ html, body {
 
   }
 
+  @keyframes steam {
+    0% {
+      box-shadow: 0 0 10px 5px rgba(200, 200, 200, 1); /* Greyish-white color */
+    }
+    50% {
+      box-shadow: 0 0 20px 10px rgba(200, 200, 200, 1); /* Greyish-white color */
+    }
+    100% {
+      box-shadow: 0 0 10px 5px rgba(200, 200, 200, 1); /* Greyish-white color */
+    }
+  }
 
 
-
-
+/* DESKTOP */
 
 @media (min-width: 1100px) {
   #canva {
@@ -207,8 +214,46 @@ html, body {
   .showcase {
     min-width: 35%;
   }
-  /* .card{
-    
-  } */
+
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+  
+  .mainBox {
+    border: none;
+  }
+  
+  .mainBox::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#965fd4, #965fd4), linear-gradient(#8bd450, #8bd450), linear-gradient(#965fd4, #965fd4), linear-gradient(#8bd450, #8bd450);
+  }
+  
+  .mainBox:hover::before {
+    animation: rotate 4s linear 1;
+  }
+  
+  .mainBox::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background-color: black;
+    border-radius: 5px;
+  }
 
 } 

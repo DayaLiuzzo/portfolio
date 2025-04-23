@@ -7,7 +7,7 @@
 :root{
   --glow-rgb: 255, 102, 0;
   --base-font: 'Times New Roman', Times, serif;
-  --main-background: hsl(0, 0%, 100%);
+  --main-background: hsl(0, 0%, 0%);
   --font-color: hsl(0, 0%, 100%);
   --base-fontWeight: bold;
   --base-fontStretch: expanded;

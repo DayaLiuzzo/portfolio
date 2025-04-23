@@ -55,7 +55,7 @@ html, body {
     padding-right: 3%;
     display: flex;
     flex-direction: column;
-    border:solid 2px blueviolet;
+    /* border:solid 2px blueviolet; */
     border-right: none;
   }
 
@@ -85,7 +85,7 @@ html, body {
   .showcase{
     /* flex-grow: 1; */
     flex: 1 1 auto;
-    border:solid 2px rgb(58, 226, 43);
+    /* border:solid 2px rgb(58, 226, 43); */
     border-left: none;
     display: flex;
     align-items: center;
@@ -115,14 +115,6 @@ html, body {
     /* border: solid 2px; */
   }
 
-
-
-
-
-
-
-
-
   .mainBox{
     display: flex;
     flex-direction: column;
@@ -130,26 +122,48 @@ html, body {
     justify-content: center;
     width: 90%;
     height: 90%;
+    overflow: hidden;
     gap: 10px;
-    border-left: solid 2px#e0b700;
-    border-right: solid 2px#e0b700;
+    border: 5px solid;
+    /* border-image: repeating-linear-gradient(50deg, #965fd4, #8bd450) 1; */
+    border-image: repeating-linear-gradient(
+    50deg,
+    #965fd4 0%,
+    #965fd4 40%,
+    #8bd450 40%,
+    #8bd450 80%
+  ) 1;
+    /* border-top: solid 2px 	#965fd4;
+    border-left: solid 2px 	 	#965fd4;
+    border-right: solid 2px 	#8bd450;
+    border-bottom: solid 2px #8bd450;; */
     border-radius: 10px;
+  }
+
+  .mainBox:hover{
+    border-image: repeating-linear-gradient(
+      125deg,
+      #965fd4 0%,
+      #965fd4 40%,
+      #8bd450 40%,
+      #8bd450 80%
+    ) 1;
   }
   
   .mediaCanva{
   
     min-height: 60%;
     min-width: 90%;
-    border: solid 2px#e22d00;
+    /* border: solid 2px#e22d00; */
     border-radius: 10px;
   
   }
   
   .stackBox{
     display: flex;
-    border: solid 2px #ffffff;
+    /* border: solid 2px #ffffff; */
     width: 90%;
-    height: 30%;
+    padding: 1%;
     gap: 5px;
     align-items: center;
     justify-content: center;

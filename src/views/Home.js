@@ -108,10 +108,16 @@ export default class Home extends BaseView {
 		techName2.innerText = "DOCKER";
 		//
 
-		mainBox.appendChild(mediaCanva);
+
+
+
 		stackElement.appendChild(techName);
 		stackBox.appendChild(stackElement);
+
+		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);
+			
+
 		showcase.appendChild(mainBox);
 		document.getElementById('canva').appendChild(showcase);
 		

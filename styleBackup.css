@@ -83,8 +83,6 @@ html, body {
   width: 90%;
   height: 90%;
   gap: 10px;
-  border-left: solid 2px#ffffff;
-  border-right: solid 2px#ffffff;
   border-radius: 10px;
 }
 
@@ -100,8 +98,7 @@ html, body {
 .stackBox{
   display: flex;
   border: solid 2px #ffffff;
-  width: 90%;
-  height: 30%;
+  min-height: 30%;
   gap: 5px;
   align-items: center;
   justify-content: center;

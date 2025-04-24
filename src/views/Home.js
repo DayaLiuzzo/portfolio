@@ -36,40 +36,41 @@ export default class Home extends BaseView {
 		return image;
 	}
 
-	renderSection(projectName, projectDescription, projectStack, projectMedia) {
-		const projectCanva = this.customCreateElement('div', "projectCanva-" + projectName , "projectCanva");
-		const newSection = this.customCreateElement('section', "section-" + projectName, "section");
-		const mediaStackCanva = this.customCreateElement('div', "mediaStackCanva-" + projectName, "mediaStackCanva");
-		const stackCanva = this.customCreateElement('div', "stackCanva-" + projectName, "stackCanva");
+	// renderSection(projectName, projectDescription, projectStack, projectMedia) {
+	// 	const projectCanva = this.customCreateElement('div', "projectCanva-" + projectName , "projectCanva");
+	// 	const newSection = this.customCreateElement('section', "section-" + projectName, "section");
+	// 	const mediaStackCanva = this.customCreateElement('div', "mediaStackCanva-" + projectName, "mediaStackCanva");
+	// 	const stackCanva = this.customCreateElement('div', "stackCanva-" + projectName, "stackCanva");
 		
-		for(const stackElement of projectStack){
-			const stackElementDiv = this.customCreateElement('div', "stack-" + stackElement, "stackElement");
-			stackElementDiv.innerText = stackElement;
-			stackCanva.appendChild(stackElementDiv);
-			console.log(stackElement);
+	// 	for(const stackElement of projectStack){
+	// 		const stackElementDiv = this.customCreateElement('div', "stack-" + stackElement, "stackElement");
+	// 		stackElementDiv.innerText = stackElement;
+	// 		stackCanva.appendChild(stackElementDiv);
+	// 		console.log(stackElement);
 
-		}
+	// 	}
 
-		const projectMediaElement = this.customCreateImage(projectMedia, "media-" + projectName, "media");
-		const projectNameElement = this.customCreateElement('h2', "name-" + projectName, "projectName");
-		const projectDescriptionElement = this.customCreateElement('p', "description-" + projectName, "projectDescription");
-		const projectLabel = this.customCreateElement('div', "label-" + projectName, "projectLabel");
-		projectNameElement.innerText = projectName;
-		projectDescriptionElement.innerText = projectDescription;
-		document.getElementById('canva').appendChild(newSection);
+	// 	const projectMediaElement = this.customCreateImage(projectMedia, "media-" + projectName, "media");
+	// 	const projectNameElement = this.customCreateElement('h2', "name-" + projectName, "projectName");
+	// 	const projectDescriptionElement = this.customCreateElement('p', "description-" + projectName, "projectDescription");
+	// 	const projectLabel = this.customCreateElement('div', "label-" + projectName, "projectLabel");
+	// 	projectNameElement.innerText = projectName;
+	// 	projectDescriptionElement.innerText = projectDescription;
+	// 	document.getElementById('canva').appendChild(newSection);
 		
 
-		newSection.appendChild(projectCanva);
-		mediaStackCanva.appendChild(stackCanva);
-		projectCanva.appendChild(projectLabel);
-		projectCanva.appendChild(mediaStackCanva);
-		projectLabel.appendChild(projectNameElement);
-		projectLabel.appendChild(projectDescriptionElement);
-		mediaStackCanva.appendChild(projectMediaElement);
-	}
+	// 	newSection.appendChild(projectCanva);
+	// 	mediaStackCanva.appendChild(stackCanva);
+	// 	projectCanva.appendChild(projectLabel);
+	// 	projectCanva.appendChild(mediaStackCanva);
+	// 	projectLabel.appendChild(projectNameElement);
+	// 	projectLabel.appendChild(projectDescriptionElement);
+	// 	mediaStackCanva.appendChild(projectMediaElement);
+	// }
 
+	
 	renderHome() {
-
+		
 		const card = this.customCreateElement('div', "card", "card");
 		const surname = this.customCreateElement('h1', "surname", "surname");
 		const lastname = this.customCreateElement('h1', "lastname", "lastname");
@@ -88,35 +89,31 @@ export default class Home extends BaseView {
 		card.appendChild(description)
 		document.getElementById('canva').appendChild(card);
 	}
-
+	
+	
+	renderStackElement(tech, stackBox){
+		const stackElement = this.customCreateElement("div", "stackElement", "stackElement");
+		const techName = this.customCreateElement("h1", "techName", "techName");
+		techName.innerText = tech;
+		stackElement.appendChild(techName);
+		stackBox.appendChild(stackElement);
+	}
 
 	renderShowcase(){
 		const showcase = this.customCreateElement('div', "showcase", "showcase");
 		const mainBox = this.customCreateElement("div", "mainBox", "mainBox");
 		const mediaCanva = this.customCreateElement("div", "mediaCanva", "mediaCanva");
-		const stackBox = this. customCreateElement("div", "stackBox", "stackBox");
-		const stackElement = this.customCreateElement("div", "stackElement", "stackElement");
-		const techName = this.customCreateElement("h1", "techName", "techName");
-		techName.innerText = "HTML";
-
-
-		//
-		const stackElement2 = this.customCreateElement("div", "stackElement", "stackElement");
-		const techName2 = this.customCreateElement("h1", "techName", "techName");
-		stackElement2.appendChild(techName2);
-		stackBox.appendChild(stackElement2);
-		techName2.innerText = "DOCKER";
-		//
-
-
-
-
-		stackElement.appendChild(techName);
-		stackBox.appendChild(stackElement);
-
+		const stackBox = this.customCreateElement("div", "stackBox", "stackBox");
+		const media = this.customCreateElement("div", "preview", "preview");
+		for(const tech of this.about.stack)
+		{
+			this.renderStackElement(tech, stackBox);
+		}
+		
+		mediaCanva.appendChild(media);
 		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);
-			
+		// bezel.appendChild(media);	
 
 		showcase.appendChild(mainBox);
 		document.getElementById('canva').appendChild(showcase);

@@ -89,12 +89,22 @@ html, body {
   }
 
   .portfolioText{
+    --base-transform: scale(1, 1.5);
+    transform: var(--base-transform);
+    animation: fadeInUp 1.3s ease-out forwards;
     font-size: 3rem;
     font-size: clamp(3rem, 1.4rem + 8vw, 11rem);
     line-height: 1em;
     transform: scale(1, 1.5);
   }
     
+
+  .surname, .lastname{
+    --base-transform: scale(1, 1.5);
+    transform: var(--base-transform);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
   .showcase{
     /* flex-grow: 1; */
     flex: 1 1 auto;
@@ -106,6 +116,9 @@ html, body {
   }
 
   .project{
+    --base-transform: scale(1, 1.5);
+    transform: var(--base-transform);
+    animation: fadeInUp 0.8s ease-out forwards;
     letter-spacing: -.07rem;
     font-family: sans-serif;
     transform: scale(1, 1.5);
@@ -115,6 +128,9 @@ html, body {
   }
 
   .description{
+    --base-transform: scale(1, 1.5);
+    transform: var(--base-transform);
+    animation: fadeInUp 1.5s ease-out forwards;
     padding-top: 1rem;
     text-align: right;
     width: 70%;
@@ -129,6 +145,7 @@ html, body {
   }
 
   .mainBox {
+    
     position: relative;
     display: flex;
     z-index: 0;
@@ -140,7 +157,7 @@ html, body {
     overflow: hidden;
     gap: 10px;
     padding: 2px;
-    box-shadow: 0px 0px 32px 5px #3f3f3f ;
+    box-shadow: 0px 0px 32px 5px #313131 ;
     border-radius: 10px;
     border: solid 2px;
     transition: transform 0.3s ease-in-out;
@@ -216,7 +233,7 @@ html, body {
   @keyframes fadeInUp {
     0% {
       opacity: 0;
-      transform: var(--base-transform) translateY(30px);
+      transform: var(--base-transform) translateY(50px);
     }
     100% {
       opacity: 1;

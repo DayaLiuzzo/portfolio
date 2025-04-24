@@ -110,7 +110,7 @@ export default class Home extends BaseView {
 			this.renderStackElement(tech, stackBox);
 		}
 		
-		mediaCanva.appendChild(media);
+		// mediaCanva.appendChild(media);
 		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);
 		// bezel.appendChild(media);	

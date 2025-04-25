@@ -52,8 +52,8 @@ html, body {
   border:#ffffff 2rem solid;
   border-right: none;
   border-bottom: none;
-} */
-
+  } */
+  
   .card{
     flex: 0 1 auto;
     flex-wrap: nowrap;
@@ -89,9 +89,10 @@ html, body {
   }
 
   .portfolioText{
+    opacity: 0;
     --base-transform: scale(1, 1.5);
     transform: var(--base-transform);
-    animation: fadeInUp 1.3s ease-out forwards;
+    animation: fadeInRight 1.3s 0.5s ease-out forwards;
     font-size: 3rem;
     font-size: clamp(3rem, 1.4rem + 8vw, 11rem);
     line-height: 1em;
@@ -100,37 +101,29 @@ html, body {
     
 
   .surname, .lastname{
+    opacity: 0;
     --base-transform: scale(1, 1.5);
     transform: var(--base-transform);
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInDown 1.3s  1s ease-out forwards;
   }
-
-  .showcase{
-    /* flex-grow: 1; */
-    flex: 1 1 auto;
-    /* border:solid 2px rgb(58, 226, 43); */
-    border-left: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
+  
   .project{
+    opacity: 0;
     --base-transform: scale(1, 1.5);
     transform: var(--base-transform);
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInUp 1.3s 1s ease-out forwards;
     letter-spacing: -.07rem;
     font-family: sans-serif;
-    transform: scale(1, 1.5);
     line-height: 1.5em;
     font-size: 1.25rem;
     font-size: clamp(1.25rem, 0.7rem + 2.75vw, 4rem);
   }
-
+  
   .description{
+    opacity: 0;
     --base-transform: scale(1, 1.5);
     transform: var(--base-transform);
-    animation: fadeInUp 1.5s ease-out forwards;
+    animation: fadeInUp 1.3s 1.4s ease-out forwards;
     padding-top: 1rem;
     text-align: right;
     width: 70%;
@@ -144,6 +137,14 @@ html, body {
     /* border: solid 2px; */
   }
 
+.showcase{
+  flex: 1 1 auto;
+  border-left: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
   .mainBox {
     
     position: relative;
@@ -238,6 +239,28 @@ html, body {
     100% {
       opacity: 1;
       transform: var(--base-transform) translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: var(--base-transform) translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: var(--base-transform) translateY(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: var(--base-transform) translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: var(--base-transform) translateX(0);
     }
   }
 

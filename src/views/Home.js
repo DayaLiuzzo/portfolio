@@ -90,6 +90,38 @@ export default class Home extends BaseView {
 		document.getElementById('canva').appendChild(card);
 	}
 	
+	injectHexStructure(mainbox) {
+		// Create the main container div
+		const pieceDiv = document.createElement('div');
+		pieceDiv.className = 'piece -rotate-method';
+	
+		// Function to create a hex row
+		function createHexRow(hexCount) {
+			const rowDiv = document.createElement('div');
+			rowDiv.className = 'hex-row -clearfix';
+	
+			for (let i = 0; i < hexCount; i++) {
+				const hexDiv = document.createElement('div');
+				hexDiv.className = 'hex -blink';
+				rowDiv.appendChild(hexDiv);
+			}
+	
+			return rowDiv;
+		}
+	
+		// Create three hex rows with 9, 9, and 9 hexes respectively
+		const row1 = createHexRow(9);
+		const row2 = createHexRow(9);
+		const row3 = createHexRow(9);
+	
+		// Append the rows to the main container div
+		pieceDiv.appendChild(row1);
+		pieceDiv.appendChild(row2);
+		pieceDiv.appendChild(row3);
+	
+		// Append the main container div to the body or any other target element
+		mainbox.appendChild(pieceDiv); // You can change 'document.body' to any other target element
+	}
 	
 	renderStackElement(tech, stackBox){
 		const stackElement = this.customCreateElement("div", "stackElement", "stackElement");
@@ -111,11 +143,13 @@ export default class Home extends BaseView {
 		}
 		
 		// mediaCanva.appendChild(media);
+		this.injectHexStructure(mainBox);
 		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);
 		// bezel.appendChild(media);	
-
+		
 		showcase.appendChild(mainBox);
+		this.injectHexStructure(mainBox);
 		document.getElementById('canva').appendChild(showcase);
 		
 	}

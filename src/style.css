@@ -2,11 +2,12 @@
 	box-sizing: border-box;
   margin:0;
   padding: 0;
+
 }
 
 
-
 :root{
+
   --danger-glow-rgb: 255, 0, 0;
   --danger-text-color: #f30;
   --glow-rgb: 255, 102, 0;
@@ -21,7 +22,9 @@
 
 }
 
+
 html, body {
+  cursor: url(/media/pointer.svg), crosshair;
   scrollbar-width: none;
   margin: 0;
   padding: 0;
@@ -169,8 +172,8 @@ html, body {
 
   .mediaCanva{
     opacity: 0;
-    min-height: 60%;
-    min-width: 90%;
+    max-height: 60%;
+    max-width: 90%;
     border-radius: 6rem;
     box-shadow:1rem 1rem rgba(var(--danger-glow-rgb), .7);
     animation: popIn 0s 1.5s ease-out both;
@@ -186,7 +189,8 @@ html, body {
     /* flex: 0 1 auto; */
     width: 90%;
     padding: 1%;
-    gap: 10px;
+    gap: 1rem;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
@@ -231,15 +235,6 @@ html, body {
     line-height: 1;
   }
 
-  #preview{
-    width: 100%;
-    height: 100%;
-    background-image: url("/media/command-line.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    /* border: #734f9a solid 4px; */
-    
-  }
 
   @keyframes fadeInUp {
     0% {

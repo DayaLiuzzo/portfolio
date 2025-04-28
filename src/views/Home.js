@@ -102,12 +102,13 @@ export default class Home extends BaseView {
 		const mainBox = this.customCreateElement("div", "mainBox", "mainBox");
 		const mediaCanva = this.customCreateElement("div", "mediaCanva", "mediaCanva");
 		const stackBox = this.customCreateElement("div", "stackBox", "stackBox");
-		const media = this.customCreateElement("div", "preview", "preview");
+		// const media = this.customCreateImage(this.about.media, "img", "img");
+		const atfield = this.customCreateElement("div", "at-field", "at-field");
 		for(const tech of this.about.stack)
 		{
 			this.renderStackElement(tech, stackBox);
 		}
-		mediaCanva.appendChild(media);
+		// mediaCanva.appendChild(media);
 		this.injectHexStructure(mainBox);
 		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);

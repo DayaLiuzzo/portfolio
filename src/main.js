@@ -27,7 +27,8 @@ import Home from "./views/Home.js";
 
 const about = {
     description: "42Paris software engineering student",
-    stack: ["C", "C++", "Python", "HTML", "CSS", "JS", "NGINX", "Docker", "Postgres"]
+    stack: ["C", "C++", "Python", "HTML", "CSS", "JS", "NGINX", "Docker", "Postgres"],
+    media: "/media/command-line.png"
 };
 
 const projects = [

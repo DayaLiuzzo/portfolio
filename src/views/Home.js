@@ -107,7 +107,7 @@ export default class Home extends BaseView {
 		{
 			this.renderStackElement(tech, stackBox);
 		}
-		
+		mediaCanva.appendChild(media);
 		this.injectHexStructure(mainBox);
 		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);

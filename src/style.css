@@ -68,6 +68,7 @@ html, body {
     padding-top: 4%;
     padding-left: 3%;
     padding-bottom: 5%;
+    justify-content: center;
     padding-right: 3%;
     display: flex;
     flex-direction: column;
@@ -96,9 +97,9 @@ html, body {
     opacity: 0;
     --base-transform: scale(1, 1.5);
     transform: var(--base-transform);
-    animation: fadeInRight 1.3s 0.5s ease-out forwards;
+    animation: fadeInRight 0.8s 0.3s ease-out forwards;
     font-size: 3rem;
-    font-size: clamp(3rem, 1.4rem + 8vw, 11rem);
+    font-size: clamp(3rem, 1.4285714285714286rem + 7.857142857142857vw, 14rem);
     line-height: 1em;
     transform: scale(1, 1.5);
   }
@@ -108,14 +109,14 @@ html, body {
     opacity: 0;
     --base-transform: scale(1, 1.5);
     transform: var(--base-transform);
-    animation: fadeInDown 1.3s  1s ease-out forwards;
+    animation: fadeInDown 0.8s  0.8s ease-out forwards;
   }
   
   .project{
     opacity: 0;
     --base-transform: scale(1, 1.5);
     transform: var(--base-transform);
-    animation: fadeInUp 1.3s 1s ease-out forwards;
+    animation: fadeInUp 0.8s 0.8s ease-out forwards;
     letter-spacing: -.07rem;
     font-family: sans-serif;
     line-height: 1.5em;
@@ -127,7 +128,7 @@ html, body {
     opacity: 0;
     --base-transform: scale(1, 1.5);
     transform: var(--base-transform);
-    animation: fadeInUp 1.3s 1.4s ease-out forwards;
+    animation: fadeInUp 0.8s 0.8s ease-out forwards;
     padding-top: 1rem;
     text-align: right;
     width: 70%;
@@ -142,6 +143,7 @@ html, body {
   }
 
 .showcase{
+  position: relative;
   flex: 1 1 auto;
   border-left: none;
   display: flex;
@@ -153,7 +155,7 @@ html, body {
     
     position: relative;
     display: flex;
-    z-index: 0;
+    /* z-index: 0; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -174,7 +176,9 @@ html, body {
   }
   
   .stackBox{
+    /* opacity:0; */
     display: flex;
+    /* animation: fadeIn 1.3s 1.5s ease-out forwards; */
     /* flex: 0 1 auto; */
     width: 90%;
     padding: 1%;
@@ -186,18 +190,26 @@ html, body {
     overflow: hidden;
     font-family: sans-serif;
     text-shadow: 0 0 3px #e19a86, 0 0 1.5px #854535, 0 0 1.5px #5c150c;
-  
+    
   }
   
   .stackElement{
+    opacity: 0;
     white-space: nowrap;
     display: flex;
     text-align: center;
     align-items: center;       
     justify-content: center;    
     border-radius: 2px;
-    background-color: black;
+    animation: popIn 0s ease-out forwards;
     box-shadow: 4px 4px 2px 1px rgba(var(--danger-glow-rgb), .5);
+  }
+
+
+  @keyframes popIn{
+    100%{
+      opacity: 1;
+    }  
   }
   
   .techName{
@@ -242,7 +254,7 @@ html, body {
   @keyframes fadeInRight {
     0% {
       opacity: 0;
-      transform: var(--base-transform) translateX(-50px);
+      transform: var(--base-transform) translateX(-100px);
     }
     100% {
       opacity: 1;
@@ -284,9 +296,7 @@ html, body {
 }
 
 .mainBox .piece:nth-child(4) {
-  /* animation:; */
   position: absolute;
-  z-index: -1;
   bottom: 0;
   right: 0;
   margin-bottom: 1rem;
@@ -308,6 +318,21 @@ html, body {
   animation-duration: var(--blink-duration);
   animation-iteration-count: infinite;
   animation-timing-function: steps(1);
+}
+
+.piece{
+  opacity: 0;
+  position: absolute;
+  animation: popIn 0s 1.3s ease-out both;
+}
+
+@keyframes fadeIn{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .hex {
@@ -365,3 +390,4 @@ html, body {
 }
 .-rotate-method .hex::before { transform: rotate(60deg); }
 .-rotate-method .hex::after { transform: rotate(-60deg); }
+

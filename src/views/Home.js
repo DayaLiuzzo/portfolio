@@ -36,39 +36,7 @@ export default class Home extends BaseView {
 		return image;
 	}
 
-	// renderSection(projectName, projectDescription, projectStack, projectMedia) {
-	// 	const projectCanva = this.customCreateElement('div', "projectCanva-" + projectName , "projectCanva");
-	// 	const newSection = this.customCreateElement('section', "section-" + projectName, "section");
-	// 	const mediaStackCanva = this.customCreateElement('div', "mediaStackCanva-" + projectName, "mediaStackCanva");
-	// 	const stackCanva = this.customCreateElement('div', "stackCanva-" + projectName, "stackCanva");
-		
-	// 	for(const stackElement of projectStack){
-	// 		const stackElementDiv = this.customCreateElement('div', "stack-" + stackElement, "stackElement");
-	// 		stackElementDiv.innerText = stackElement;
-	// 		stackCanva.appendChild(stackElementDiv);
-	// 		console.log(stackElement);
 
-	// 	}
-
-	// 	const projectMediaElement = this.customCreateImage(projectMedia, "media-" + projectName, "media");
-	// 	const projectNameElement = this.customCreateElement('h2', "name-" + projectName, "projectName");
-	// 	const projectDescriptionElement = this.customCreateElement('p', "description-" + projectName, "projectDescription");
-	// 	const projectLabel = this.customCreateElement('div', "label-" + projectName, "projectLabel");
-	// 	projectNameElement.innerText = projectName;
-	// 	projectDescriptionElement.innerText = projectDescription;
-	// 	document.getElementById('canva').appendChild(newSection);
-		
-
-	// 	newSection.appendChild(projectCanva);
-	// 	mediaStackCanva.appendChild(stackCanva);
-	// 	projectCanva.appendChild(projectLabel);
-	// 	projectCanva.appendChild(mediaStackCanva);
-	// 	projectLabel.appendChild(projectNameElement);
-	// 	projectLabel.appendChild(projectDescriptionElement);
-	// 	mediaStackCanva.appendChild(projectMediaElement);
-	// }
-
-	
 	renderHome() {
 		
 		const card = this.customCreateElement('div', "card", "card");
@@ -91,7 +59,6 @@ export default class Home extends BaseView {
 	}
 	
 	injectHexStructure(mainbox) {
-		// Create the main container div
 		const pieceDiv = document.createElement('div');
 		pieceDiv.className = 'piece -rotate-method';
 	
@@ -109,18 +76,17 @@ export default class Home extends BaseView {
 			return rowDiv;
 		}
 	
-		// Create three hex rows with 9, 9, and 9 hexes respectively
+
 		const row1 = createHexRow(9);
 		const row2 = createHexRow(9);
 		const row3 = createHexRow(9);
 	
-		// Append the rows to the main container div
+
 		pieceDiv.appendChild(row1);
 		pieceDiv.appendChild(row2);
 		pieceDiv.appendChild(row3);
 	
-		// Append the main container div to the body or any other target element
-		mainbox.appendChild(pieceDiv); // You can change 'document.body' to any other target element
+		mainbox.appendChild(pieceDiv); 
 	}
 	
 	renderStackElement(tech, stackBox){
@@ -142,26 +108,36 @@ export default class Home extends BaseView {
 			this.renderStackElement(tech, stackBox);
 		}
 		
-		// mediaCanva.appendChild(media);
 		this.injectHexStructure(mainBox);
 		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);
-		// bezel.appendChild(media);	
+		
+		
 		
 		showcase.appendChild(mainBox);
 		this.injectHexStructure(mainBox);
 		document.getElementById('canva').appendChild(showcase);
+		const stackElements = document.querySelectorAll('.stackElement');
+		const initialDelay = 1.3; // Initial delay for the first element
+		const interval = 0.1; // Interval between each element's appearance
+
+		const elementsArray = Array.from(stackElements);
+	
+		for (let i = elementsArray.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[elementsArray[i], elementsArray[j]] = [elementsArray[j], elementsArray[i]];
+		}
+
+		elementsArray.forEach((element, index) => {
+			const delay = initialDelay + (index * interval);
+			element.style.animationDelay = `${delay}s`;
+		});
 		
 	}
+
 	mount() {
 		this.renderHome();
 		this.renderShowcase();
-		// this.renderBase
-
-		// for(const project of this.projects) {
-		// 	this.renderSection(project.name, project.description, project.stack, project.media);
-		// }
-		// this.renderOverlay();
 	}
 
 	attachEvents() {

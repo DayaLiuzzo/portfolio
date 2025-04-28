@@ -139,7 +139,6 @@ html, body {
     overflow-wrap: break-word;
     word-break: break-word;
     white-space: normal;
-    /* border: solid 2px; */
   }
 
 .showcase{
@@ -151,8 +150,6 @@ html, body {
 }
   
   .mainBox {
-    /* opacity: 0; */
-    /* animation: angelAttack 1.3s 0.5s ease-out forwards; */
     position: relative;
     display: flex;
     z-index: 0;
@@ -168,20 +165,7 @@ html, body {
     border-radius: 10px;
     border: solid 2px;
     transition: transform 0.3s ease-in-out;
-    border-image: repeating-linear-gradient(
-      50deg,
-      #965fd4 0%,
-      #965fd4 40%,
-      #8bd450 40%,
-      #8bd450 80%
-      ) 1;
-
-    
-      
   }
-
-
-
 
   .mainBox:hover{
     transform: scale(1.05);
@@ -199,7 +183,6 @@ html, body {
   
   .stackBox{
     display: flex;
-    /* flex: 0 1 auto; */
     width: 90%;
     padding: 1%;
     gap: 10px;
@@ -236,7 +219,6 @@ html, body {
     height: 100%;
     background-image: url("/media/command-line.png");
     background-repeat: no-repeat;
-    /* border: #734f9a solid 4px; */
     
   }
 
@@ -283,6 +265,15 @@ html, body {
     }
   }
 
+  @keyframes fadeIn{
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 /* DESKTOP */
 
 @media (min-width: 1100px) {
@@ -301,48 +292,14 @@ html, body {
     }
   }
   
-  .mainBox {
-    border: none;
-  }
-  
-  .mainBox::before {
-    content: '';
-    position: absolute;
-    z-index: -2;
-    left: -50%;
-    top: -50%;
-    width: 200%;
-    height: 200%;
-    background-repeat: no-repeat;
-    background-size: 50% 50%, 50% 50%;
-    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(#965fd4, #965fd4), linear-gradient(#8bd450, #8bd450), linear-gradient(#965fd4, #965fd4), linear-gradient(#8bd450, #8bd450);
-  }
-  
-  .mainBox:hover::before {
-    animation: rotate 4s linear 1;
-  }
-  
-  .mainBox::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    left: 6px;
-    top: 6px;
-    width: calc(100% - 12px);
-    height: calc(100% - 12px);
-    background-color: black;
-    border-radius: 5px;
-  }
-
-} 
+}
 
 
 
-/* Import the Roboto Condensed font */
+
 @import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400,600,700);
 
-/* Basic styles for the board and pieces */
+
 .board {
   --glow-rgb: 255, 102, 0;
   --text-color: #fa0;
@@ -360,7 +317,7 @@ html, body {
   margin-right: 1rem;
 }
 
-/* Hexagon styles */
+
 .hex {
   --edge-size: 20px;
   --diagonal-size: calc(var(--edge-size) * 2);
@@ -419,10 +376,3 @@ html, body {
 .-rotate-method .hex::before { transform: rotate(60deg); }
 .-rotate-method .hex::after { transform: rotate(-60deg); }
 
-/* Fade out animation */
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-}

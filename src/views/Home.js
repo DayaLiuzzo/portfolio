@@ -102,20 +102,15 @@ export default class Home extends BaseView {
 		const mainBox = this.customCreateElement("div", "mainBox", "mainBox");
 		const mediaCanva = this.customCreateElement("div", "mediaCanva", "mediaCanva");
 		const stackBox = this.customCreateElement("div", "stackBox", "stackBox");
-		// const media = this.customCreateImage(this.about.media, "img", "img");
-		const atfield = this.customCreateElement("div", "at-field", "at-field");
 		for(const tech of this.about.stack)
 		{
 			this.renderStackElement(tech, stackBox);
 		}
-		// mediaCanva.appendChild(media);
 		this.injectHexStructure(mainBox);
 		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);
-		mainBox.appendChild(atfield);
 		
-		
-		
+
 		showcase.appendChild(mainBox);
 		this.injectHexStructure(mainBox);
 		document.getElementById('canva').appendChild(showcase);
@@ -124,32 +119,34 @@ export default class Home extends BaseView {
 		const interval = 0.1; // Interval between each element's appearance
 
 		const elementsArray = Array.from(stackElements);
-	
 		for (let i = elementsArray.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
 			[elementsArray[i], elementsArray[j]] = [elementsArray[j], elementsArray[i]];
 		}
-
 		elementsArray.forEach((element, index) => {
 			const delay = initialDelay + (index * interval);
 			element.style.animationDelay = `${delay}s`;
 		});
-
-		// const atfield = document.querySelector('.atfield');
-		const numOctagons = 20; // Limited to 7
 		
+	}
+
+	renderATfield()
+	{
+		const atfield = this.customCreateElement("div", "at-field", "at-field");
+		document.body.appendChild(atfield);
+		const numOctagons = 20; 
 		for (let i = 0; i < numOctagons; i++) {
 		  const octagon = document.createElement('div');
 		  octagon.className = 'octogon';
 		  octagon.style.animationDelay = `${i * 0.3}s`;
 		  atfield.appendChild(octagon);
 		}
-		
 	}
 
 	mount() {
 		this.renderHome();
 		this.renderShowcase();
+		this.renderATfield();
 	}
 
 	attachEvents() {

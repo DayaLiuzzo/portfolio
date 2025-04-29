@@ -35,6 +35,7 @@ html, body {
   min-width: 100dvw;
   min-height: 100dvh;
   display: flex;
+  position: relative;
   scroll-behavior: smooth;
 
   /* border: solid 2px rebeccapurple; */

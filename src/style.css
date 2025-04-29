@@ -43,6 +43,7 @@ html, body {
 }
 
 #canva{
+  position:relative;
   display: flex;
   flex-direction: column;
   background-color: var(--main-background);
@@ -343,11 +344,12 @@ html, body {
 }
 
 
-.atfield{
+.at-field{
   display: flex;
-  position:relative;
-  width: 300px;
-  height: 300px;
+  position: absolute;
+  align-self: center;
+  z-index: 1;
+  left: 50%;
 }
 
 .octogon {

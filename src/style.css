@@ -38,6 +38,7 @@ html, body {
   min-height: 100dvh;
   display: flex;
   scroll-behavior: smooth;
+  overflow: hidden;
 
   /* border: solid 2px rebeccapurple; */
 }
@@ -63,6 +64,7 @@ html, body {
   } */
   
   .card{
+    /* border: solid 2px rgb(255, 255, 255); */
     flex: 0 1 auto;
     flex-wrap: nowrap;
     overflow: hidden;
@@ -76,9 +78,12 @@ html, body {
     padding-right: 3%;
     display: flex;
     flex-direction: column;
+    /* border-left: none;
+    border-top: none;
+    border-bottom: none; */
     /* border:solid 2px blueviolet; */
     border-right: none;
-    /* box-shadow: inset 0px 0px 4px 2px white; */
+    /* box-shadow: inset 0px 0px 40px 2px rgb(46, 46, 46); */
   }
 
   .surname{
@@ -156,7 +161,8 @@ html, body {
 }
   
   .mainBox {
-    
+    opacity:0;
+    animation: fadeIn 0.8s 0.8s ease-out forwards;
     position: relative;
     display: flex;
     /* z-index: 0; */
@@ -170,7 +176,10 @@ html, body {
     padding: 2px;
   }
 
-  .mediaCanva{
+  .projectList{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     opacity: 0;
     max-height: 60%;
     max-width: 90%;
@@ -187,6 +196,15 @@ html, body {
     font-size: clamp(2rem, 1.577092511013216rem + 2.1145374449339207vw, 5rem);
     line-height: 1.2em;
     transform: scale(1, 1.5);
+    transition: 0.4s ease;
+  }
+
+  .projectTitle:nth-child(odd):hover{
+    background-color: rgb(79, 255, 88);;
+
+  }
+  .projectTitle:nth-child(even):hover{
+    background-color: rgb(132, 0, 255);;
 
   }
   
@@ -200,6 +218,102 @@ html, body {
     gap: 1rem;
     flex-direction: row;
     align-items: center;
+    display: flex;
+    /* animation: fadeIn 1.3s 1.5s ease-out forwards; */
+    /* flex: 0 1 auto; */
+    width: 90%;
+    padding: 1%;
+    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    font-family: sans-serif;
+    text-shadow: 0 0 3px #e19a86, 0 0 1.5px #854535, 0 0 1.5px #5c150c;
+    
+  }
+  
+  .stackElement{
+    opacity: 0;
+    white-space: nowrap;
+    display: flex;
+    text-align: center;
+    align-items: center;       
+    justify-content: center;    
+    border-radius: 0.1rem;
+    animation: popIn 0s ease-out forwards;
+    box-shadow: 4px 4px 2px 1px rgba(var(--danger-glow-rgb), .5);
+  }
+
+  .stackElement:nth-child(odd){
+    box-shadow: 4px 4px 2px 1px rgba(var(--danger-glow-rgb), .6);
+  }
+
+
+
+  @keyframes popIn{
+    100%{
+      opacity: 1;
+    }  
+  }
+
+  
+  
+  .techName{
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.8571428571428572rem + 0.7142857142857143vw, 2rem);
+    text-transform: uppercase;
+    margin: 0;
+    display: flex;
+    line-height: 1;
+  }
+
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: var(--base-transform) translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: var(--base-transform) translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: var(--base-transform) translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: var(--base-transform) translateY(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: var(--base-transform) translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: var(--base-transform) translateX(0);
+    }
+  }
+
+/* DESKTOP */
+
+@media (min-width: 1100px) {
+  #canva {
+    flex-direction: row;
+  }
+
+  .showcase {
+    min-width: 35%;
+  }
     justify-content: center;
     border-radius: 10px;
     flex-wrap: wrap;
@@ -296,15 +410,23 @@ html, body {
   }
   
   .mainBox {
+    width: 95%;
+    height: 95%;
     --base-transform: perspective(1000px) rotateY(-15deg)  rotateX(0deg);
     border: none;
     box-shadow: 10px 0px 9px 1px rgb(61, 61, 61);
     transform: var(--base-transform);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .mainBox:hover{
-    transform: var(--base-transform) scale(1.1);
+    transform: var(--base-transform) scale(1.02);
     box-shadow: 15px 0px 9px 10px rgb(61, 61, 61);
+  }
+
+  .card{
+    transform: perspective(1000px) rotateY(15deg)  rotateX(0deg);
+    padding-left: 6%;
   }
 } 
 
@@ -398,6 +520,10 @@ html, body {
     opacity: 0; 
   }
 }
+
+
+
+
 
 .hex {
   --edge-size:clamp(0.125rem, -0.09999999999999998rem + 1.125vw, 1.25rem);

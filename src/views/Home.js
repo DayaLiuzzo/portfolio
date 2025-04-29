@@ -98,24 +98,36 @@ export default class Home extends BaseView {
 	}
 
 	renderProjectName(projectName){
-		const mediaCanva = document.getElementById("mediaCanva");
+		const projectList = document.getElementById("projectList");
 		const projectTitleElement = this.customCreateElement("div", "projectTitle", "projectTitle");
-		projectTitleElement.innerText = "project stack";
-		mediaCanva.appendChild(projectTitleElement);
+		projectTitleElement.innerText = "TRANSCENDANCE\nIRC\nMINISHELL";
+		projectList.appendChild(projectTitleElement);
 
+	}
+
+	renderProjectList(){
+		const projectList = document.getElementById("projectList");
+		for(const project of this.projects)
+		{
+			// const projectElement = this.customCreateElement("div", "project", "project");
+			const projectTitle = this.customCreateElement("h1", "projectTitle", "projectTitle");
+			projectTitle.innerText = project.name;
+			// projectElement.appendChild(projectTitle);
+			projectList.appendChild(projectTitle);
+		}
 	}
 
 	renderShowcase(){
 		const showcase = this.customCreateElement('div', "showcase", "showcase");
 		const mainBox = this.customCreateElement("div", "mainBox", "mainBox");
-		const mediaCanva = this.customCreateElement("div", "mediaCanva", "mediaCanva");
+		const projectList = this.customCreateElement("div", "projectList", "projectList");
 		const stackBox = this.customCreateElement("div", "stackBox", "stackBox");
 		for(const tech of this.about.stack)
 		{
 			this.renderStackElement(tech, stackBox);
 		}
 		this.injectHexStructure(mainBox);
-		mainBox.appendChild(mediaCanva);
+		mainBox.appendChild(projectList);
 		mainBox.appendChild(stackBox);
 
 
@@ -158,12 +170,33 @@ export default class Home extends BaseView {
 		}
 	}
 
+	renderProject(project){
+		const projectName = document.getElementById("projectTitle");
+		const episodeNumber = document.getElementById("project");
+		const description = document.getElementById("description");
+		const stackBox = document.getElementById("stackBox");
+		stackBox.innerHTML = "";
+		projectName.innerText = project.name;
+		episodeNumber.innerHTML = "EPISODE: 1";
+		for(const tech of project.stack)
+			{
+				this.renderStackElement(tech, stackBox);
+			}
+
+	}
+
+	renderProject
+
 	mount() {
 		this.renderHome();
 		this.renderShowcase();
-		this.renderProjectName("test");
+		this.renderProjectList();
+		// this.renderProjectName("test");
+		// this.renderProject(this.projects[0]);
 		// this.renderATfield();
 	}
+
+
 
 	attachEvents() {
 		

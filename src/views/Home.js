@@ -112,6 +112,7 @@ export default class Home extends BaseView {
 		this.injectHexStructure(mainBox);
 		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);
+		mainBox.appendChild(atfield);
 		
 		
 		
@@ -133,6 +134,16 @@ export default class Home extends BaseView {
 			const delay = initialDelay + (index * interval);
 			element.style.animationDelay = `${delay}s`;
 		});
+
+		// const atfield = document.querySelector('.atfield');
+		const numOctagons = 20; // Limited to 7
+		
+		for (let i = 0; i < numOctagons; i++) {
+		  const octagon = document.createElement('div');
+		  octagon.className = 'octogon';
+		  octagon.style.animationDelay = `${i * 0.3}s`;
+		  atfield.appendChild(octagon);
+		}
 		
 	}
 

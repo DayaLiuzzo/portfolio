@@ -102,7 +102,7 @@ html, body {
     transform: var(--base-transform);
     animation: fadeInRight 0.8s 0.3s ease-out forwards;
     font-size: 3rem;
-    font-size: clamp(3rem, 1.4285714285714286rem + 7.857142857142857vw, 14rem);
+    font-size: clamp(3rem, 1.5903083700440528rem + 7.048458149779736vw, 13rem);
     line-height: 1em;
     transform: scale(1, 1.5);
   }
@@ -339,6 +339,35 @@ html, body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+
+.atfield{
+  display: flex;
+  position:relative;
+  width: 300px;
+  height: 300px;
+}
+
+.octogon {
+  position:absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #000000 50%, #ff9500 65%);
+  mix-blend-mode: screen;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+  animation: expand 3s infinite;
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0; 
   }
 }
 

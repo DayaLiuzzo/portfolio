@@ -97,6 +97,14 @@ export default class Home extends BaseView {
 		stackBox.appendChild(stackElement);
 	}
 
+	renderProjectName(projectName){
+		const mediaCanva = document.getElementById("mediaCanva");
+		const projectTitleElement = this.customCreateElement("div", "projectTitle", "projectTitle");
+		projectTitleElement.innerText = "project stack";
+		mediaCanva.appendChild(projectTitleElement);
+
+	}
+
 	renderShowcase(){
 		const showcase = this.customCreateElement('div', "showcase", "showcase");
 		const mainBox = this.customCreateElement("div", "mainBox", "mainBox");
@@ -109,7 +117,7 @@ export default class Home extends BaseView {
 		this.injectHexStructure(mainBox);
 		mainBox.appendChild(mediaCanva);
 		mainBox.appendChild(stackBox);
-		
+
 
 		showcase.appendChild(mainBox);
 		this.injectHexStructure(mainBox);
@@ -137,7 +145,9 @@ export default class Home extends BaseView {
   		const interval = 0.3; // Interval between each octagon's animation start
   		const offset = 6; // Offset the animation by 2 seconds
 		const atfield = this.customCreateElement("div", "at-field", "at-field");
-		document.body.appendChild(atfield);
+		const container = document.getElementById('showcase');
+		// document.body.appendChild(atfield);
+		container.appendChild(atfield);
 		const numOctagons = 20; 
 		for (let i = 0; i < numOctagons; i++) {
 		  const octagon = document.createElement('div');
@@ -151,7 +161,8 @@ export default class Home extends BaseView {
 	mount() {
 		this.renderHome();
 		this.renderShowcase();
-		this.renderATfield();
+		this.renderProjectName("test");
+		// this.renderATfield();
 	}
 
 	attachEvents() {

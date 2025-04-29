@@ -168,19 +168,26 @@ html, body {
     overflow: hidden;
     gap: 5rem;
     padding: 2px;
-  
   }
 
   .mediaCanva{
     opacity: 0;
     max-height: 60%;
     max-width: 90%;
-    border-radius: 6rem;
-    box-shadow:1rem 1rem rgba(var(--danger-glow-rgb), .7);
     animation: popIn 0s 1.5s ease-out both;
     justify-content: center;
     /* margin-bottom: 100px; */
   
+  }
+
+  .projectTitle{
+    overflow: hidden;
+    letter-spacing: -.07rem;
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.577092511013216rem + 2.1145374449339207vw, 5rem);
+    line-height: 1.2em;
+    transform: scale(1, 1.5);
+
   }
   
   .stackBox{
@@ -209,7 +216,7 @@ html, body {
     text-align: center;
     align-items: center;       
     justify-content: center;    
-    border-radius: 0.6rem;
+    border-radius: 0.1rem;
     animation: popIn 0s ease-out forwards;
     box-shadow: 4px 4px 2px 1px rgba(var(--danger-glow-rgb), .5);
   }
@@ -289,7 +296,15 @@ html, body {
   }
   
   .mainBox {
+    --base-transform: perspective(1000px) rotateY(-15deg)  rotateX(0deg);
     border: none;
+    box-shadow: 10px 0px 9px 1px rgb(61, 61, 61);
+    transform: var(--base-transform);
+  }
+
+  .mainBox:hover{
+    transform: var(--base-transform) scale(1.1);
+    box-shadow: 15px 0px 9px 10px rgb(61, 61, 61);
   }
 } 
 
@@ -345,17 +360,28 @@ html, body {
 
 
 .at-field{
+  opacity: 1;
   display: flex;
   position: absolute;
   align-self: center;
   z-index: 1;
   left: 50%;
+  animation: pop 2s linear forwards;
+}
+
+@keyframes pop{
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .octogon {
   position:absolute;
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   background: radial-gradient(circle, #000000 50%, #ff9500 65%);
   mix-blend-mode: screen;
   clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);

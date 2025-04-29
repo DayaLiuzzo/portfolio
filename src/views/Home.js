@@ -132,13 +132,18 @@ export default class Home extends BaseView {
 
 	renderATfield()
 	{
+
+		const animationDuration = 3; // Duration of the animation in seconds
+  		const interval = 0.3; // Interval between each octagon's animation start
+  		const offset = 6; // Offset the animation by 2 seconds
 		const atfield = this.customCreateElement("div", "at-field", "at-field");
 		document.body.appendChild(atfield);
 		const numOctagons = 20; 
 		for (let i = 0; i < numOctagons; i++) {
 		  const octagon = document.createElement('div');
+		  const delay = (i * interval) - offset; // Calculate the delay for each octagon
 		  octagon.className = 'octogon';
-		  octagon.style.animationDelay = `${i * 0.3}s`;
+		  octagon.style.animationDelay = `${delay}s`;
 		  atfield.appendChild(octagon);
 		}
 	}

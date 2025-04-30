@@ -185,7 +185,29 @@ export default class Home extends BaseView {
 
 	}
 
-	renderProject
+	renderProject(projectName){
+		console.log(projectName);
+			for(project of this.projects)
+			{
+				if (project.name === projectName) {
+					const mainBox = document.getElementById("mainBox");
+					const projectList = document.getElementById("projectList");
+					projectList.innerHTML = "";
+					const projectName = this.customCreateElement("h1", "projectTitle", "projectTitle");
+					projectName.innerText = project.name;
+					projectList.appendChild(projectName);
+					const description = this.customCreateElement("h1", "description", "description");
+					description.innerText = project.description;
+					const stackBox = document.getElementById("stackBox");
+					mainBox.insertBefore(description, stackBox);
+					stackBox.innerHTML = "";
+					for(const tech of project.stack)
+						{
+							this.renderStackElement(tech, stackBox);
+						}
+				}
+			}
+	}
 
 	mount() {
 		this.renderHome();
@@ -197,9 +219,21 @@ export default class Home extends BaseView {
 	}
 
 
+	handleProjectClick(event) {
+		console.log(event.target.innerText);
+		const canva = document.getElementById('canva');
+		canva.classList.toggle('expanded');
+		this.renderProject(event.target.innerText);
+		// card.style.display = 'none';
+	}
 
 	attachEvents() {
-		
+		const projectElements = document.querySelectorAll('.projectTitle');
+		projectElements.forEach((projectElement) => {
+			projectElement.addEventListener('click', (event) => {
+				this.handleProjectClick(event);
+			});
+		});
 
 	}
 }

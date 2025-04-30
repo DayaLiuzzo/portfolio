@@ -148,7 +148,6 @@ html, body {
     overflow-wrap: break-word;
     word-break: break-word;
     white-space: normal;
-    /* border: solid 2px; */
   }
 
 .showcase{
@@ -165,7 +164,6 @@ html, body {
     animation: fadeIn 0.8s 0.8s ease-out forwards;
     position: relative;
     display: flex;
-    /* z-index: 0; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -185,8 +183,6 @@ html, body {
     max-width: 90%;
     animation: popIn 0s 1.5s ease-out both;
     justify-content: center;
-    /* margin-bottom: 100px; */
-  
   }
 
   .projectTitle{
@@ -200,27 +196,22 @@ html, body {
   }
 
   .projectTitle:nth-child(odd):hover{
-    background-color: rgb(79, 255, 88);;
+    background-color: rgba(var(--danger-glow-rgb), .5);
 
   }
   .projectTitle:nth-child(even):hover{
-    background-color: rgb(132, 0, 255);;
+    background-color: rgba(255, 170, 0, 0.822);
 
   }
   
   .stackBox{
-    /* opacity:0; */
     display: flex;
-    /* animation: fadeIn 1.3s 1.5s ease-out forwards; */
-    /* flex: 0 1 auto; */
     width: 90%;
     padding: 1%;
     gap: 1rem;
     flex-direction: row;
     align-items: center;
     display: flex;
-    /* animation: fadeIn 1.3s 1.5s ease-out forwards; */
-    /* flex: 0 1 auto; */
     width: 90%;
     padding: 1%;
     gap: 1rem;
@@ -259,6 +250,7 @@ html, body {
     }  
   }
 
+  
   
   
   .techName{
@@ -428,11 +420,35 @@ html, body {
     transform: perspective(1000px) rotateY(15deg)  rotateX(0deg);
     padding-left: 6%;
   }
+
+  #canva{
+    transition: all 1s;
+  }
+
+  .card, .showcase {
+    transition: all 1s;
+    overflow: hidden;
+  }
+
+  
+  #canva.expanded .card {
+    /* background-color: white; */
+    display: none;
+
+
+  }
+  
+  #canva.expanded .mainBox {
+    
+    /* opacity: 0;
+    animation: popIn 0s 1s linear forwards; */
+    /* background-color: white; */
+  }
+
 } 
 
 
-
-.mainBox .piece:nth-child(1) {
+.piece:nth-child(odd) {
   position: absolute;
   top: 0;
   left: 0;
@@ -440,7 +456,7 @@ html, body {
   margin-left: 1rem;
 }
 
-.mainBox .piece:nth-child(4) {
+.piece:nth-child(even) {
   position: absolute;
   bottom: 0;
   right: 0;

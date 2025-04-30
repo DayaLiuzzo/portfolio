@@ -41,9 +41,15 @@ const projects = [
   {
     name: "MINISHELL:",
     description: "Replica of a shell in C.",
-    stack: ["C", "shell", "Makefile"],
+    stack: ["C", "SHELL"],
     media: "/media/logoJs.svg"
   },
+  {
+    name: "IRC:",
+    description: "Replica of an IRSSI chat server in C++.",
+    stack: ["C++"],
+    media: "/media/logoJs.svg"
+  }
 ];
 
 const routes = [

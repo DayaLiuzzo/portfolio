@@ -303,6 +303,17 @@ html, body {
     min-width: 35%;
   }
 
+  .keyFeature{
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.5596330275229358rem + 2.2018348623853212vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+  }
+
+  
+
   .previewCanva{
     /* background-color: yellow; */
     width: 100%;
@@ -326,7 +337,7 @@ html, body {
   }
 
   .carouselImage{
-    width: 50%;
+    max-width: 50%;
     height: auto;
     max-height: 100%;
 

@@ -120,6 +120,8 @@ html, body {
     transform: var(--base-transform);
     animation: fadeInDown 0.8s  0.8s ease-out forwards;
   }
+
+
   
   .project{
     opacity: 0;
@@ -211,12 +213,6 @@ html, body {
     gap: 1rem;
     flex-direction: row;
     align-items: center;
-    display: flex;
-    width: 90%;
-    padding: 1%;
-    gap: 1rem;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
     border-radius: 10px;
     flex-wrap: wrap;
@@ -306,13 +302,47 @@ html, body {
   .showcase {
     min-width: 35%;
   }
-    justify-content: center;
-    border-radius: 10px;
-    flex-wrap: wrap;
+
+  .previewCanva{
+    /* background-color: yellow; */
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    max-height: 50%;
+    padding-right: 4rem;
+    gap: 4rem;
     overflow: hidden;
-    font-family: sans-serif;
-    text-shadow: 0 0 3px #e19a86, 0 0 1.5px #854535, 0 0 1.5px #5c150c;
-    
+  }
+  
+  .carouselWrapper{
+    /* max-width: 0%; */width: 60%;
+    height: auto;
+    /* background-color: white; */
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 2rem;
+    gap: 2rem;
+    overflow: hidden;
+  }
+
+  .carouselImage{
+    width: 50%;
+    height: auto;
+    max-height: 100%;
+
+  }
+  
+  .descriptionFull{
+    padding-right: 10%;
+    max-width: 30%;
+    height: 100%;
+    /* padding-right: 10%; */
+    /* align-self: flex-end; */
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.8532110091743119rem + 0.7339449541284404vw, 2rem);
+  }
+
+
   }
   
   .stackElement{
@@ -393,6 +423,7 @@ html, body {
   .showcase {
     min-width: 35%;
   }
+
 
 
   @keyframes rotate {

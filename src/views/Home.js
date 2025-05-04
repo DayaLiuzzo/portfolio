@@ -153,37 +153,22 @@ export default class Home extends BaseView {
 	renderATfield()
 	{
 
-		const animationDuration = 3; // Duration of the animation in seconds
-  		const interval = 0.3; // Interval between each octagon's animation start
-  		const offset = 6; // Offset the animation by 2 seconds
+		const animationDuration = 3; 
+  		const interval = 0.3;
+  		const offset = 6; 
 		const atfield = this.customCreateElement("div", "at-field", "at-field");
 		const container = document.getElementById('showcase');
-		// document.body.appendChild(atfield);
 		container.appendChild(atfield);
 		const numOctagons = 20; 
 		for (let i = 0; i < numOctagons; i++) {
 		  const octagon = document.createElement('div');
-		  const delay = (i * interval) - offset; // Calculate the delay for each octagon
+		  const delay = (i * interval) - offset; 
 		  octagon.className = 'octogon';
 		  octagon.style.animationDelay = `${delay}s`;
 		  atfield.appendChild(octagon);
 		}
 	}
 
-	renderProject(project){
-		const projectName = document.getElementById("projectTitle");
-		const episodeNumber = document.getElementById("project");
-		const description = document.getElementById("description");
-		const stackBox = document.getElementById("stackBox");
-		stackBox.innerHTML = "";
-		projectName.innerText = project.name;
-		episodeNumber.innerHTML = "EPISODE: 1";
-		for(const tech of project.stack)
-			{
-				this.renderStackElement(tech, stackBox);
-			}
-
-	}
 
 	renderProject(projectName){
 		console.log(projectName);
@@ -196,10 +181,24 @@ export default class Home extends BaseView {
 					const projectName = this.customCreateElement("h1", "projectTitle", "projectTitle");
 					projectName.innerText = project.name;
 					projectList.appendChild(projectName);
-					const description = this.customCreateElement("h1", "description", "description");
-					description.innerText = project.description;
+					const descriptionFull = this.customCreateElement("h1", "descriptionFull", "descriptionFull");
+					descriptionFull.innerText = project.description;
+					const previewCanva = this.customCreateElement("div", "previewCanva", "previewCanva");
+					previewCanva.appendChild(descriptionFull);
 					const stackBox = document.getElementById("stackBox");
-					mainBox.insertBefore(description, stackBox);
+					mainBox.insertBefore(previewCanva, stackBox);
+					const carouselWrapper = this.customCreateElement("div", "carouselWrapper", "carouselWrapper");
+					const img = document.createElement("img");
+					img.src = project.media;
+					img.className = "carouselImage";
+					carouselWrapper.appendChild(img);
+					const keyFeature = this.customCreateElement("h1", "keyFeature", "keyFeature");
+					keyFeature.innerText = "Key Feature";
+					const keyFeatureText = this.customCreateElement("h1", "keyFeatureText", "keyFeatureText");
+					carouselWrapper.appendChild(keyFeature);
+					keyFeature.appendChild(keyFeatureText);
+					keyFeatureText.innerText = "Tokenizing"
+					previewCanva.appendChild(carouselWrapper);
 					stackBox.innerHTML = "";
 					for(const tech of project.stack)
 						{
@@ -213,9 +212,6 @@ export default class Home extends BaseView {
 		this.renderHome();
 		this.renderShowcase();
 		this.renderProjectList();
-		// this.renderProjectName("test");
-		// this.renderProject(this.projects[0]);
-		// this.renderATfield();
 	}
 
 
@@ -224,7 +220,6 @@ export default class Home extends BaseView {
 		const canva = document.getElementById('canva');
 		canva.classList.toggle('expanded');
 		this.renderProject(event.target.innerText);
-		// card.style.display = 'none';
 	}
 
 	attachEvents() {

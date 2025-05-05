@@ -40,7 +40,7 @@ const projects = [
   },
   {
     name: "MINISHELL:",
-    description: "Replica of a shell based of Bash official documentation,  It interprets and executes user commands in a Unix-like environment, supporting essential shell behaviors such as pipelines, redirections, and environment variable handling. The project demonstrates a strong grasp of Unix system programming, process control, and memory management.",
+    description: "This project is a Bash shell replica that interprets and executes user commands in a Unix-like environment. It supports key features like pipelines, redirections, and environment variable handling, showcasing solid knowledge of Unix system programming, process control, and memory management.",
     stack: ["C", "SHELL"],
     media: "/media/logoJs.svg"
   },

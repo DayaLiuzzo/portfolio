@@ -9,6 +9,8 @@ let isRunning = true;
 export default class Home extends BaseView {
 	constructor(router, params) {
 		super(router, params);
+		this.handleHomeClick = this.handleHomeClick.bind(this);
+		this.handleProjectClick = this.handleProjectClick.bind(this);
 
 	}
 
@@ -19,21 +21,6 @@ export default class Home extends BaseView {
 	render() {
 			return `
               `;
-	}
-
-	customCreateElement(tagName, id, className) {
-		const element = document.createElement(tagName);
-		element.id = id;
-		element.className = className;
-		return element;
-	}
-
-	customCreateImage(src, id, className) {
-		const image = document.createElement('img');
-		image.src = src;
-		image.id = id;
-		image.className = className;
-		return image;
 	}
 
 
@@ -212,6 +199,17 @@ export default class Home extends BaseView {
 					nav.appendChild(nextButton);
 					keyFeature.appendChild(nav);
 					keyFeatureText.innerText = "Breaking down the input in tokens whilst respecting the quotes and protections."
+
+					const homeButton = this.customCreateElement("div", "homeButton", "button");
+					homeButton.innerHTML = "&#8250;";
+
+					homeButton.addEventListener('click', (event) => {
+						event.preventDefault();
+						console.log("HERE");
+						this.handleHomeClick(event);
+					});
+
+					mainBox.appendChild(homeButton);
 					previewCanva.appendChild(carouselWrapper);
 					stackBox.innerHTML = "";
 					for(const tech of project.stack)
@@ -228,6 +226,14 @@ export default class Home extends BaseView {
 		this.renderProjectList();
 	}
 
+	handleHomeClick(event){
+		console.log("CLICKED");
+		const canva = document.getElementById('canva');
+		canva.classList.toggle('expanded');
+		this.router.loadView();
+
+		
+	}
 
 	handleProjectClick(event) {
 		console.log(event.target.innerText);

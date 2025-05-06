@@ -1,9 +1,15 @@
+@import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400,600,700);
+
+
 *, *::before, *::after {
 	box-sizing: border-box;
   margin:0;
   padding: 0;
+  --text-color: #fa0;
+  --gutter-size: 8px;
 
 }
+
 
 
 :root{
@@ -32,8 +38,8 @@ html, body {
   color: var(--font-color);
   font-weight: var(--base-fontWeight);
   font-stretch: var(--base-fontStretch);
-  /* height: 100%;
-  width: 100%; */
+  height: 100%;
+  width: 100%;
   min-width: 100dvw;
   min-height: 100dvh;
   display: flex;
@@ -207,6 +213,8 @@ html, body {
   }
   
   .stackBox{
+    margin-left:auto;
+    margin-right:auto;
     display: flex;
     width: 90%;
     padding: 1%;
@@ -313,82 +321,149 @@ html, body {
 
   }
 
-  
 
   .previewCanva{
-    /* background-color: yellow; */
     width: 100%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    height: auto;
     max-height: 50%;
-    padding-right: 4rem;
-    gap: 4rem;
+    align-items: center;
+    gap:0;
+    justify-content: space-around;
+    /* spacing */
     overflow: hidden;
   }
   
-  .carouselWrapper{
-    /* max-width: 0%; */width: 60%;
-    height: auto;
-    /* background-color: white; */
-    display: flex;
-    flex-direction: row-reverse;
-    /* padding: 2rem; */
-    gap: 2rem;
-    overflow: hidden;
-  }
 
-  .carouselImage{
+
+  .featureImage{
+    /* box-shadow: 0px 0px 0px 15px rgb(61, 61, 61); */
+    position: relative;
     max-width: 50%;
     height: auto;
     max-height: 100%;
 
   }
   
-  .keyFeatureText{
+  .featureName{
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.577092511013216rem + 2.1145374449339207vw, 5rem);
+
+  }
+
+  .label{
+    font-family: 'Roboto Condensed';
+    letter-spacing: -1px;
+    line-height: 1;
+    padding: 1px calc(var(--gutter-size) - 3px);
+    text-transform: uppercase;
+    /* white-space: nowrap; */
+    /* skin */
+    --text-glow-color: rgba(var(--glow-rgb), .5);
+    color: var(--text-color);
+    text-shadow:
+      -1px 1px 0 var(--text-glow-color),
+      1px -1px 0 var(--text-glow-color),
+      -1px -1px 0 var(--text-glow-color),
+      1px 1px 0 var(--text-glow-color);
+  }
+  
+
+
+  .bordered {
+    --border-glow-color: rgba(var(--glow-rgb), .7);
+    border-radius: var(--gutter-size);
+    border-style: solid;
+    border-width: 3px;
+    box-shadow:
+      inset 0 0 0 1px var(--border-glow-color),
+      0 0 0 1px var(--border-glow-color);
+  }
+  .bordered.danger {
+    --border-glow-color: rgba(var(--danger-glow-rgb), .7);
+  }
+
+  .label.danger {
+    --text-glow-color: rgba(var(--danger-glow-rgb), .5);
+    color: var(--danger-text-color);
+  }
+
+
+  .featureDescription{
+    padding: 1%;
+    border-radius: 8px;
+    width: 100%;
+    position: relative;
     font-size: 1rem;
     font-size: clamp(1rem, 0.8532110091743119rem + 0.7339449541284404vw, 2rem);
-    font-family: Arial, Helvetica, sans-serif;
-    /* background-color: white; */
-    /* color: #000; */
+
   }
+
+  .featureCanva{
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 25%;
+  }
+
+
 
 
   .descriptionFull{
-    padding-right: 10%;
-    max-width: 30%;
-    height: 100%;
-    /* padding-right: 10%; */
-    /* align-self: flex-end; */
-    font-size: 1rem;
-    font-size: clamp(1rem, 0.8532110091743119rem + 0.7339449541284404vw, 2rem);
-    font-family: Arial, Helvetica, sans-serif;
-    /* text-shadow: none; */
-    hyphens: auto;
-    text-align: justify;
+    padding:4px;
+    display:inline;
+    max-width: 25%;
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: auto;
+    max-height: 100%;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.1071428571428572rem + 0.5714285714285714vw, 2rem);
+    /* font-family: Arial, Helvetica, sans-serif; */
+    justify-content: center;
     text-align-last: left;
   }
 
+  .homeButton{
+    z-index: 10;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 0.3214285714285714rem + 1.7142857142857144vw, 3rem);
+    display: flex;
+    position:absolute;
+    transition: all 0.2s ease;
+    top:10%;
+    right: 10%;
+  }
+
+  .homeButton:hover{
+    transform: scale(1.2);
+  }
+
+
   .nav{
+    gap: 0.5rem;
+    margin-top: auto;
     height: 20%;
-    width: 100%;
     display: flex;
     flex-direction: row;
   }
 
   .button{
-    flex: 1 1 auto;
-    text-decoration: none;
-    text-align: center;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 0.3214285714285714rem + 2.7142857142857144vw, 5rem);
+    display: inline;
+    transition: all 0.2s ease;
   }
 
-  #prevButton{
-
+  .button:hover{
+    transform: scale(1.2);
   }
-
-  #nextButton{
-
-  }
-
 
   }
   
@@ -414,18 +489,6 @@ html, body {
       opacity: 1;
     }  
   }
-
-  
-  
-  .techName{
-    font-size: 1rem;
-    font-size: clamp(1rem, 0.8571428571428572rem + 0.7142857142857143vw, 2rem);
-    text-transform: uppercase;
-    margin: 0;
-    display: flex;
-    line-height: 1;
-  }
-
 
   @keyframes fadeInUp {
     0% {
@@ -478,6 +541,46 @@ html, body {
       transform: rotate(1turn);
     }
   }
+
+
+
+  .wrapper{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .projectCanva {
+    background-color: var(--main-background);
+    /* align-self: center; */
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 95%;
+    max-width: 95%;
+    max-height: 95%;
+    /* --base-transform: perspective(1200px) rotateY(0deg)  rotateX(20deg); */
+    /* border: solid 2px white; */
+    /* box-shadow: 0px 15px 5px 10px rgb(61, 61, 61); */
+    /* transform: var(--base-transform); */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .projectName{
+    margin-right: auto;
+    margin-left: auto;
+    letter-spacing: -.07rem;
+    font-size: 3rem;
+    font-size: clamp(3rem, -1.024390243902439rem + 5.853658536585366vw, 6rem);
+    line-height: 1.2em;
+    transform: scale(1, 1.5);
+    transition: 0.4s ease;
+    
+  }
   
   .mainBox {
     width: 95%;
@@ -515,6 +618,12 @@ html, body {
 
 
   }
+
+  #canva.expanded .projectTitle:hover{
+    background-color: black;
+
+
+  }
   
   #canva.expanded .mainBox {
     
@@ -542,6 +651,22 @@ html, body {
   margin-right: 1rem;
 }
 
+
+.projectCanva .piece:nth-child(odd) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 2rem;
+  margin-left: 4rem;
+}
+
+.projectCanva .piece:nth-child(even) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 4rem;
+  margin-right: 4rem;
+}
 
 .mainBox .piece:nth-child(4) .hex-row:nth-child(1){
   opacity: 0;

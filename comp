@@ -37,6 +37,7 @@ body {
     inset 0 0 0 1px var(--border-glow-color),
     0 0 0 1px var(--border-glow-color);
 }
+
 .-bordered.--danger {
   --border-glow-color: rgba(var(--danger-glow-rgb), .7);
 }

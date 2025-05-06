@@ -24,6 +24,7 @@ import { setupCounter } from './counter.js'
 // setupCounter(document.querySelector('#counter'))
 
 import Home from "./views/Home.js";
+import Transcendance from "./views/Transcendance.js";
 
 const about = {
     description: "42Paris software engineering student",
@@ -36,14 +37,69 @@ const projects = [
     name: "TRANSCENDENCE:",
     description: "Single page application designed in a microservice architecture.",
     stack: ["HTML", "CSS", "JS", "Django", "Docker", "PostgreSQL"],
-    media: "/media/command-line.png"
-  },
-  {
+    media: "/media/command-line.png",
+    features: [
+        {
+            name: "Microservices",
+            description: "Architecture that breaks down the application into smaller, independent services, enhancing scalability and maintainability.",
+            media: "/media/logoJs.svg"
+        },
+        {
+            name: "WebSocket",
+            description: "Real-time communication between the client and server, allowing for instant updates and interactions.",
+            media: "/media/logoJs.svg"
+        },
+        {
+            name: "REST API",
+            description: "Provides a structured way for clients to interact with the server, enabling CRUD operations on resources.",
+            media: "/media/logoJs.svg"
+        },
+        {
+            name: "PostgreSQL",
+            description: "Relational database management system used for data storage and retrieval, ensuring data integrity and security.",
+            media: "/media/logoJs.svg"
+        },
+        {
+            name: "Docker",
+            description: "Containerization technology that allows for consistent environments across development, testing, and production.",
+            media: "/media/logoJs.svg"
+        }
+    ]
+},
+{
     name: "MINISHELL:",
     description: "This project is a Bash shell replica that interprets and executes user commands in a Unix-like environment. It supports key features like pipelines, redirections, and environment variable handling, showcasing solid knowledge of Unix system programming, process control, and memory management.",
     stack: ["C", "SHELL"],
-    media: "/media/logoJs.svg"
+    media: "/media/logoJs.svg",
+    features: [
+        {
+            name: "Tokenization",
+            description: "Parses user input into tokens, breaking down commands and arguments for easier processing and execution.",
+            media: "/media/logoJs.svg"
+        },
+        {
+            name: "Pipelines",
+            description: "Allows chaining commands together using the pipe operator (|), enabling the output of one command to be used as the input for another.",
+            media: "/media/logoJs.svg"
+        },
+        {
+            name: "Redirections",
+            description: "Supports input and output redirection using operators like >, <, >>, and <<, allowing users to control where command output goes and where input comes from.",
+            media: "/media/logoJs.svg"
+        },
+        {
+            name: "Environment Variables",
+            description: "Manages environment variables, enabling users to set, unset, and access variables that affect the shell's behavior and command execution.",
+            media: "/media/logoJs.svg"
+        },
+        {
+            name: "Signal Handling",
+            description: "Handles signals like SIGINT and SIGQUIT, allowing the shell to respond appropriately to user interrupts and control commands.",
+            media: "/media/logoJs.svg"
+        }
+    ]
   },
+  
   {
     name: "IRC:",
     description: "Replica of an IRSSI chat server in C++.",
@@ -55,6 +111,7 @@ const projects = [
 const routes = [
   { path: '/', view: Home},
   { path: '/home', view: Home},
+  {path: '/transcendance', view: Transcendance}
 ];
 
 class Router{

@@ -451,6 +451,20 @@ html, body {
     transform: scale(1.2);
   }
 
+  .projectButton{
+    z-index: 10;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 0.3214285714285714rem + 1.7142857142857144vw, 3rem);
+    display: flex;
+    position:absolute;
+    transition: all 0.2s ease;
+    bottom:10%;
+    left: 10%;
+  }
+
+  .projectButton:hover{
+    transform: scale(1.15);
+  }
 
   .nav{
     gap: 0.5rem;

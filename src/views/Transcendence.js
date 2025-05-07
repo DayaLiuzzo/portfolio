@@ -40,8 +40,12 @@ export default class Transcendence extends BaseView {
             homeButton.addEventListener('click', () => {
                 this.router.navigateTo('/home');
             });
-            
-
+            const projectButton = this.customCreateElement("div", "projectButton", "projectButton bordered danger label");
+            projectButton.innerText = "FULL PROJECT";
+            projectCanva.appendChild(projectButton);
+            projectButton.addEventListener('click', () => {
+                window.open("https://github.com/DayaLiuzzo/Transcendence", "_blank");
+            });
 
     }
 

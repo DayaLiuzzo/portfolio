@@ -26,6 +26,8 @@ import { setupCounter } from './counter.js'
 import Home from "./views/Home.js";
 import Transcendence from "./views/Transcendence.js";
 import Minishell from "./views/Minishell.js";
+import Irc from "./views/Irc.js";
+
 
 const about = {
     description: "42Paris software engineering student",
@@ -114,6 +116,7 @@ const routes = [
   { path: '/home', view: Home},
   {path: '/transcendence', view: Transcendence},
   {path: '/minishell', view: Minishell},
+  {path: '/irc', view: Irc},
 ];
 
 class Router{

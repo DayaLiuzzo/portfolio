@@ -9,7 +9,6 @@ let isRunning = true;
 export default class Home extends BaseView {
 	constructor(router, params) {
 		super(router, params);
-		this.handleHomeClick = this.handleHomeClick.bind(this);
 		this.handleProjectClick = this.handleProjectClick.bind(this);
 
 	}
@@ -84,19 +83,11 @@ export default class Home extends BaseView {
 		stackBox.appendChild(stackElement);
 	}
 
-	renderProjectName(projectName){
-		const projectList = document.getElementById("projectList");
-		const projectTitleElement = this.customCreateElement("div", "projectTitle", "projectTitle");
-		projectTitleElement.innerText = "TRANSCENDANCE\nIRC\nMINISHELL";
-		projectList.appendChild(projectTitleElement);
-
-	}
 
 	renderProjectList(){
 		const projectList = document.getElementById("projectList");
 		for(const project of this.projects)
 		{
-			// const projectElement = this.customCreateElement("div", "project", "project");
 			const projectTitle = this.customCreateElement("h1", "projectTitle", "projectTitle");
 			projectTitle.innerText = project.name;
 			// projectElement.appendChild(projectTitle);
@@ -156,90 +147,16 @@ export default class Home extends BaseView {
 		}
 	}
 
-
-	renderProject(projectName){
-		console.log(projectName);
-			for(project of this.projects)
-			{
-				if (project.name === projectName) {
-					const mainBox = document.getElementById("mainBox");
-					const projectList = document.getElementById("projectList");
-					projectList.innerHTML = "";
-					
-					const projectName = this.customCreateElement("h1", "projectTitle", "projectTitle");
-					projectName.innerText = project.name;
-					projectList.appendChild(projectName);
-					
-					const descriptionFull = this.customCreateElement("h1", "descriptionFull", "descriptionFull");
-					descriptionFull.innerText = project.description;
-					
-					const previewCanva = this.customCreateElement("div", "previewCanva", "previewCanva");
-					previewCanva.appendChild(descriptionFull);
-					const stackBox = document.getElementById("stackBox");
-					mainBox.insertBefore(previewCanva, stackBox);
-					
-					const carouselWrapper = this.customCreateElement("div", "carouselWrapper", "carouselWrapper");
-					const img = document.createElement("img");
-					img.src = project.media;
-					img.className = "carouselImage";
-					carouselWrapper.appendChild(img);
-					
-					const keyFeature = this.customCreateElement("h1", "keyFeature", "keyFeature");
-					keyFeature.innerText = "Tokenizing";
-					const keyFeatureText = this.customCreateElement("h1", "keyFeatureText", "keyFeatureText");
-					carouselWrapper.appendChild(keyFeature);
-					keyFeature.appendChild(keyFeatureText);
-
-					const nav = this.customCreateElement("div", "nav", "nav");
-					const prevButton = this.customCreateElement("a", "prevButton", "button");
-					const nextButton = this.customCreateElement("a", "nextButton", "button");
-					prevButton.innerHTML = "&#8249;";
-					nextButton.innerHTML = "&#8250;";
-					nav.appendChild(prevButton);
-					nav.appendChild(nextButton);
-					keyFeature.appendChild(nav);
-					keyFeatureText.innerText = "Breaking down the input in tokens whilst respecting the quotes and protections."
-
-					const homeButton = this.customCreateElement("div", "homeButton", "button");
-					homeButton.innerHTML = "&#8250;";
-
-					homeButton.addEventListener('click', (event) => {
-						event.preventDefault();
-						console.log("HERE");
-						this.handleHomeClick(event);
-					});
-
-					mainBox.appendChild(homeButton);
-					previewCanva.appendChild(carouselWrapper);
-					stackBox.innerHTML = "";
-					for(const tech of project.stack)
-						{
-							this.renderStackElement(tech, stackBox);
-						}
-				}
-			}
-	}
-
 	mount() {
 		this.renderHome();
 		this.renderShowcase();
 		this.renderProjectList();
 	}
 
-	handleHomeClick(event){
-		console.log("CLICKED");
-		const canva = document.getElementById('canva');
-		canva.classList.toggle('expanded');
-		this.router.loadView();
-
-		
-	}
-
 	handleProjectClick(event) {
 		console.log(event.target.innerText);
 		const canva = document.getElementById('canva');
-		canva.classList.toggle('expanded');
-		this.renderProject(event.target.innerText);
+		this.router.navigateTo("/transcendence");
 	}
 
 	attachEvents() {

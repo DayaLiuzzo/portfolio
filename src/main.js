@@ -24,7 +24,7 @@ import { setupCounter } from './counter.js'
 // setupCounter(document.querySelector('#counter'))
 
 import Home from "./views/Home.js";
-import Transcendance from "./views/Transcendance.js";
+import Transcendence from "./views/Transcendence.js";
 
 const about = {
     description: "42Paris software engineering student",
@@ -42,27 +42,27 @@ const projects = [
         {
             name: "Microservices",
             description: "Architecture that breaks down the application into smaller, independent services, enhancing scalability and maintainability.",
-            media: "/media/logoJs.svg"
+            media: "/media/microservices.png"
         },
         {
             name: "WebSocket",
             description: "Real-time communication between the client and server, allowing for instant updates and interactions.",
-            media: "/media/logoJs.svg"
+            media: "/media/websocket.png"
         },
         {
             name: "REST API",
             description: "Provides a structured way for clients to interact with the server, enabling CRUD operations on resources.",
-            media: "/media/logoJs.svg"
+            media: "/media/API.png"
         },
         {
             name: "PostgreSQL",
             description: "Relational database management system used for data storage and retrieval, ensuring data integrity and security.",
-            media: "/media/logoJs.svg"
+            media: "/media/postgresql.png"
         },
         {
             name: "Docker",
             description: "Containerization technology that allows for consistent environments across development, testing, and production.",
-            media: "/media/logoJs.svg"
+            media: "/media/docker.png"
         }
     ]
 },
@@ -111,7 +111,7 @@ const projects = [
 const routes = [
   { path: '/', view: Home},
   { path: '/home', view: Home},
-  {path: '/transcendance', view: Transcendance}
+  {path: '/transcendence', view: Transcendence}
 ];
 
 class Router{

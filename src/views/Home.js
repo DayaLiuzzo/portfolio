@@ -156,7 +156,13 @@ export default class Home extends BaseView {
 	handleProjectClick(event) {
 		console.log(event.target.innerText);
 		const canva = document.getElementById('canva');
-		this.router.navigateTo("/transcendence");
+		
+		const projects = {
+			"MINISHELL:": "/minishell",
+			"IRC:": "/irc",
+			"TRANSCENDENCE:": "/transcendence",}
+		const path = projects[event.target.innerText];
+		this.router.navigateTo(path);
 	}
 
 	attachEvents() {

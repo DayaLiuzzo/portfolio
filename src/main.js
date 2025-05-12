@@ -38,7 +38,7 @@ const about = {
 const projects = [
   {
     name: "TRANSCENDENCE:",
-    description: "Single page application designed in a microservice architecture.",
+    description: "Single page application designed in a microservice architecture. 2FA & JWT authentication, real-time chat with WebSocket, REST API for CRUD operations, and a PostgreSQL database for data storage. The application is containerized using Docker for easy deployment and scalability.",
     stack: ["HTML", "CSS", "JS", "Django", "Docker", "PostgreSQL"],
     media: "/media/command-line.png",
     features: [
@@ -78,27 +78,27 @@ const projects = [
         {
             name: "Tokenization",
             description: "Parses user input into tokens, breaking down commands and arguments for easier processing and execution.",
-            media: "/media/logoJs.svg"
+            media: "/media/tokenization.png"
         },
         {
             name: "Pipelines",
             description: "Allows chaining commands together using the pipe operator (|), enabling the output of one command to be used as the input for another.",
-            media: "/media/logoJs.svg"
+            media: "/media/pipeline.png"
         },
         {
             name: "Redirections",
             description: "Supports input and output redirection using operators like >, <, >>, and <<, allowing users to control where command output goes and where input comes from.",
-            media: "/media/logoJs.svg"
+            media: "/media/redirection.png"
         },
         {
             name: "Environment Variables",
             description: "Manages environment variables, enabling users to set, unset, and access variables that affect the shell's behavior and command execution.",
-            media: "/media/logoJs.svg"
+            media: "/media/expand.png"
         },
         {
             name: "Signal Handling",
             description: "Handles signals like SIGINT and SIGQUIT, allowing the shell to respond appropriately to user interrupts and control commands.",
-            media: "/media/logoJs.svg"
+            media: "/media/signal.png"
         }
     ]
   },

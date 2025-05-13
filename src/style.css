@@ -356,8 +356,8 @@ html, body {
     display: inline-block;
     max-width: 100%;
     position: relative;
-    font-size: 2rem;
-    font-size: clamp(2rem, 1.577092511013216rem + 2.1145374449339207vw, 5rem);
+font-size: 2rem;
+font-size: clamp(2rem, -0.3571428571428572rem + 3.428571428571429vw, 5rem);
 
   }
 
@@ -418,8 +418,10 @@ html, body {
   }
 
 
-
-
+  .featureTechName{
+font-size: 1.5rem;
+font-size: clamp(1.5rem, 1.0384615384615383rem + 0.6153846153846154vw, 2rem);
+  }
   .descriptionFull{
     padding:4px;
     display:inline;
@@ -429,8 +431,8 @@ html, body {
     margin-bottom: auto;
     height: auto;
     max-height: 100%;
-    font-size: 1.5rem;
-    font-size: clamp(1.5rem, 1.1071428571428572rem + 0.5714285714285714vw, 2rem);
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.07692307692307687rem + 1.2307692307692308vw, 2rem);
     /* font-family: Arial, Helvetica, sans-serif; */
     justify-content: center;
     text-align-last: left;
@@ -583,6 +585,8 @@ html, body {
     height: 95%;
     max-width: 95%;
     max-height: 95%;
+    box-shadow: 0px 0px 10px 5px rgb(97, 97, 97);
+    /* transform: perspective(1000px) rotateY(0deg)  rotateX(15deg) scaleY(1.1); */
     /* --base-transform: perspective(1200px) rotateY(0deg)  rotateX(20deg); */
     /* border: solid 2px white; */
     /* box-shadow: 0px 15px 5px 10px rgb(61, 61, 61); */

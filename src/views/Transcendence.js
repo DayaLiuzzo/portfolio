@@ -54,21 +54,17 @@ export default class Transcendence extends BaseView {
         const nextButton = document.getElementById('nextButton');
 
         let currentFeatureIndex = this.projects[0].features.findIndex(feature => feature.name === featureName);
-        console.log("currentFeatureIndex", currentFeatureIndex);
         prevButton.addEventListener('click', () => {
-            console.log("prevButton clicked");
             if (currentFeatureIndex > 0) {
                 currentFeatureIndex--;
                 this.renderFeature(this.projects[0].features[currentFeatureIndex]);
             }
             else {
-                console.log("length :" ,this.projects[0].features.length);
                 const lastFeatureIndex = this.projects[0].features.length - 1;
                 this.renderFeature(this.projects[0].features[lastFeatureIndex]);
             }
         });
         nextButton.addEventListener('click', () => {
-            console.log("nextButton clicked");
             if (currentFeatureIndex < this.projects[0].features.length - 1) {
                 currentFeatureIndex++;
                 this.renderFeature(this.projects[0].features[currentFeatureIndex]);

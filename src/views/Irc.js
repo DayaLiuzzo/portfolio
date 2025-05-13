@@ -44,7 +44,7 @@ export default class IRC extends Transcendence {
             projectButton.innerText = "FULL PROJECT";
             projectCanva.appendChild(projectButton);
             projectButton.addEventListener('click', () => {
-                window.open("https://github.com/DayaLiuzzo/IRC", "_blank");
+                window.open("https://github.com/Sizzard/ft_irc", "_blank");
             });
 
     }
@@ -54,9 +54,8 @@ export default class IRC extends Transcendence {
         const nextButton = document.getElementById('nextButton');
 
         let currentFeatureIndex = this.projects[2].features.findIndex(feature => feature.name === featureName);
-        console.log("currentFeatureIndex", currentFeatureIndex);
+
         prevButton.addEventListener('click', () => {
-            console.log("prevButton clicked");
             if (currentFeatureIndex > 0) {
                 currentFeatureIndex--;
                 this.renderFeature(this.projects[2].features[currentFeatureIndex]);
@@ -68,7 +67,6 @@ export default class IRC extends Transcendence {
             }
         });
         nextButton.addEventListener('click', () => {
-            console.log("nextButton clicked");
             if (currentFeatureIndex < this.projects[2].features.length - 1) {
                 currentFeatureIndex++;
                 this.renderFeature(this.projects[2].features[currentFeatureIndex]);

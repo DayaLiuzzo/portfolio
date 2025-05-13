@@ -302,9 +302,137 @@ html, body {
 
 /* DESKTOP */
 
+.wrapper{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectCanva{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.projectName{
+font-size: 2.5rem;
+font-size: clamp(2.5rem, 1.7692828146143438rem + 3.247631935047361vw, 4rem);
+}
+
+.previewCanva{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  /* overflow: hidden; */
+}
+
+.featureCanva{
+  display: none;
+}
+
+  .featureImage{
+    display: none;
+  }
+
+  .featureDescription{
+    display: none;
+  }
+
+
+  .stackBox{
+    display: none;
+  }
+
+  .nav{
+    display: none;
+  }
+
+    .homeButton{
+    z-index: 10;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 0.3214285714285714rem + 1.7142857142857144vw, 3rem);
+    display: flex;
+    position:absolute;
+    bottom: 5%;
+    right: 5%;
+  }
+
+
+    .projectButton{
+    z-index: 10;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 0.3214285714285714rem + 1.7142857142857144vw, 3rem);
+    display: flex;
+    position:absolute;
+    bottom: 5%;
+    left: 5%;
+  }
+
+    .descriptionFull{
+    margin-top: auto;
+    margin-bottom: auto;
+
+  }
+
+
+  .label{
+    font-family: 'Roboto Condensed';
+    letter-spacing: -1px;
+    line-height: 1;
+    padding: 1px calc(var(--gutter-size) - 3px);
+    text-transform: uppercase;
+    /* white-space: nowrap; */
+    /* skin */
+    --text-glow-color: rgba(var(--glow-rgb), .5);
+    color: var(--text-color);
+    text-shadow:
+      -1px 1px 0 var(--text-glow-color),
+      1px -1px 0 var(--text-glow-color),
+      -1px -1px 0 var(--text-glow-color),
+      1px 1px 0 var(--text-glow-color);
+  }
+  
+
+
+  .bordered {
+    --border-glow-color: rgba(var(--glow-rgb), .7);
+    border-radius: var(--gutter-size);
+    border-style: solid;
+    border-width: 3px;
+    box-shadow:
+      inset 0 0 0 1px var(--border-glow-color),
+      0 0 0 1px var(--border-glow-color);
+  }
+  .bordered.danger {
+    --border-glow-color: rgba(var(--danger-glow-rgb), .7);
+  }
+
+  .label.danger {
+    --text-glow-color: rgba(var(--danger-glow-rgb), .5);
+    color: var(--danger-text-color);
+  }
+
+.projectCanva .piece{
+  display: none;
+}
+
+
+
 @media (min-width: 1100px) {
   #canva {
     flex-direction: row;
+  }
+
+  .stackBox{
+    display:flex;
   }
 
   .showcase {
@@ -338,6 +466,7 @@ html, body {
 
 
   .featureImage{
+    display: flex;
     box-shadow: 0px 0px 0px 5px rgb(38, 125, 131);
     position: relative;
     max-width: 50%;
@@ -400,6 +529,7 @@ font-size: clamp(2rem, -0.3571428571428572rem + 3.428571428571429vw, 5rem);
 
 
   .featureDescription{
+    display: flex;
     padding: 1%;
     border-radius: 8px;
     width: 100%;
@@ -422,6 +552,7 @@ font-size: clamp(2rem, -0.3571428571428572rem + 3.428571428571429vw, 5rem);
 font-size: 1.5rem;
 font-size: clamp(1.5rem, 1.0384615384615383rem + 0.6153846153846154vw, 2rem);
   }
+
   .descriptionFull{
     padding:4px;
     display:inline;
@@ -445,6 +576,7 @@ font-size: clamp(1.5rem, 1.0384615384615383rem + 0.6153846153846154vw, 2rem);
     display: flex;
     position:absolute;
     transition: all 0.2s ease;
+    bottom: auto;
     top:10%;
     right: 10%;
   }
@@ -655,7 +787,24 @@ font-size: clamp(1.5rem, 1.0384615384615383rem + 0.6153846153846154vw, 2rem);
     animation: popIn 0s 1s linear forwards; */
     /* background-color: white; */
   }
-
+  
+  .projectCanva .piece:nth-child(odd) {
+    display: initial;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 3rem;
+    margin-left: 5rem;
+  }
+  
+  .projectCanva .piece:nth-child(even) {
+    display: initial;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 4rem;
+    margin-right: 5rem;
+  }
 } 
 
 
@@ -676,21 +825,6 @@ font-size: clamp(1.5rem, 1.0384615384615383rem + 0.6153846153846154vw, 2rem);
 }
 
 
-.projectCanva .piece:nth-child(odd) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-top: 3rem;
-  margin-left: 5rem;
-}
-
-.projectCanva .piece:nth-child(even) {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 4rem;
-  margin-right: 5rem;
-}
 
 .mainBox .piece:nth-child(4) .hex-row:nth-child(1){
   opacity: 0;
@@ -763,9 +897,6 @@ font-size: clamp(1.5rem, 1.0384615384615383rem + 0.6153846153846154vw, 2rem);
     opacity: 0; 
   }
 }
-
-
-
 
 
 .hex {

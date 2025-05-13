@@ -676,8 +676,8 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 2rem;
-  margin-left: 4rem;
+  margin-top: 3rem;
+  margin-left: 5rem;
 }
 
 .projectCanva .piece:nth-child(even) {
@@ -685,7 +685,7 @@ html, body {
   bottom: 0;
   right: 0;
   margin-bottom: 4rem;
-  margin-right: 4rem;
+  margin-right: 5rem;
 }
 
 .mainBox .piece:nth-child(4) .hex-row:nth-child(1){

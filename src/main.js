@@ -107,7 +107,19 @@ const projects = [
     name: "IRC:",
     description: "Replica of an IRSSI chat server in C++.",
     stack: ["C++"],
-    media: "/media/logoJs.svg"
+    media: "/media/logoJs.svg",
+    features: [ 
+        {
+            name: "Client-Server Architecture",
+            description: "The application is built on a client-server model, where multiple clients can connect to a central server to communicate with each other.",
+            media: "/media/client-server.png"
+        },
+        {
+            name: "Protocol Implementation",
+            description: "Implements the IRC protocol, allowing clients to join channels, send messages, and perform various IRC commands.",
+            media: "/media/protocol.png"
+        }
+    ]
   }
 ];
 
